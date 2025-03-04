@@ -1,73 +1,85 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phone_book.cpp                                     :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:06:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/04 15:43:07 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:41:53 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phone_book.hpp"
+#include "PhoneBook.hpp"
 
-void	add_func(PhoneBook *phonebook)
-{
+PhoneBook::PhoneBook(void){
+	contactCount = 0;
+}
+
+PhoneBook::~PhoneBook(void){
+}
+
+void PhoneBook::addContact(const Contact& newContact){
+	contact[contactCount % 8] = newContact;
+}
+
+void PhoneBook::displayPhoneBook(void){
+	for (int i = 0; i < 8; i++)
+		contact[i].display();
+}
+
+void	PhoneBook::add(void){
 	Contact	new_contact;
 	
 	new_contact.changeContact();
-	phonebook->addContact(new_contact);
-	phonebook->contactCount++;
+	addContact(new_contact);
+	contactCount++;
 }
 
-void	ft_printf_case(std::string temp)
+void	printCase(std::string temp)
 {
 	if (temp.length() > 10)
 		temp = temp.substr(0, 9) + ".";
-	std::cout << std::right << std::setw(10) << temp << "|";
+	std::cout << std::setw(10) << temp << "|";
 }
 
-void	ft_printf_row(PhoneBook *phonebook, int row)
+void	PhoneBook::printRow(int row)
 {
 	std::string str;
 	std::stringstream ss;
 	
-    ss << row;
-    str = ss.str();
+	ss << row; str = ss.str();
 	std::cout << "|";
-	ft_printf_case(str);
-	ft_printf_case(phonebook->contact[row].first_name);
-	ft_printf_case(phonebook->contact[row].last_name);
-	ft_printf_case(phonebook->contact[row].nickname);
+	printCase(str);
+	printCase(contact[row].getFirstName());
+	printCase(contact[row].getLastName());
+	printCase(contact[row].getNickname());
 	std::cout << std::endl;	
 }
 
-void	ft_printf_search(PhoneBook *phonebook)
+void	PhoneBook::printSearch(void)
 {
-	std::cout << "\033[4m";
-	std::cout << std::right << std::setw(12) << "";
-	std::cout << std::right << std::setw(11) << "";
-	std::cout << std::right << std::setw(11) << "";
-	std::cout << std::right << std::setw(11) << "";
-	std::cout << std::endl;	
-	std::cout << "|";
-	ft_printf_case("id");
-	ft_printf_case("first_name");
-	ft_printf_case("last_name");
-	ft_printf_case("nickname");
+	std::cout << "\033[4m" << std::setw(12);
+	std::cout << "" << std::setw(11);
+	std::cout << "" << std::setw(11);
+	std::cout << "" << std::setw(11);
+	std::cout << "" << std::endl << "|";
+	printCase("id");
+	printCase("firstName");
+	printCase("lastName");
+	printCase("nickname");
 	std::cout << std::endl;	
 	for (int row = 0; row < 8; row++)
-		ft_printf_row(phonebook, row);
+		printRow(row);
 	std::cout << "\033[0m";
 }
 
-void	search_func(PhoneBook *phonebook)
+void	PhoneBook::search(void)
 {
 	std::string	str;
 	int			result;
 	
-	ft_printf_search(phonebook);
+	printSearch();
 	std::cout << "ENTER CONTACT INDEX : ";
 	std::getline(std::cin, str);
 	for (int i = 0; str[i] != '\0'; i++)
@@ -80,7 +92,7 @@ void	search_func(PhoneBook *phonebook)
 	}
 	result = atoi(str.c_str());
 	if (result < 8 && result > -1)
-		phonebook->contact[result].display();
+		contact[result].display();
 	else
 		std::cout << "\033[34mERROR : INCORRECT INPUT\033[0m" << std::endl;
 }
@@ -99,9 +111,9 @@ int main(void)
 		if (str == "")
 			std::cout << "\033[F";
 		else if (str == "ADD")
-			add_func(&phonebook);
+			phonebook.add();
 		else if (str == "SEARCH")
-			search_func(&phonebook);
+			phonebook.search();
 		else if (str == "EXIT")
 			break ;
 		else if (str == "EXIT")
