@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:06:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/02/25 15:00:33 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:43:07 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,16 @@ int main(void)
 	while (1)
 	{
 		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			break ;
 		if (str == "")
 			std::cout << "\033[F";
 		else if (str == "ADD")
 			add_func(&phonebook);
 		else if (str == "SEARCH")
 			search_func(&phonebook);
+		else if (str == "EXIT")
+			break ;
 		else if (str == "EXIT")
 			break ;
 		else

@@ -5,24 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 13:32:27 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/04 13:30:58 by jdhallen         ###   ########.fr       */
+/*   Created: 2025/03/04 10:25:21 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/03/04 12:51:06 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Harl.hpp"
 
-int main(void)
+int	main(int argc, char **argv)
 {
-	std::string string = "HI THIS IS BRAIN";
-	std::string* stringPTR = &string;
-	std::string& stringREF = string;
-
-	std::cout << &string << std::endl;
-	std::cout << stringPTR << std::endl;
-	std::cout << &stringREF << std::endl;
-
-	std::cout << string << std::endl;
-	std::cout << *stringPTR << std::endl;
-	std::cout << stringREF << std::endl;
+	std::string	level;
+	Harl		harl;
+	
+	if (argc == 1)
+		return (-1);
+	if (argc >= 2) {
+		level = argv[1];
+		harl.complain(level);
+	}
+	return (1);
 }

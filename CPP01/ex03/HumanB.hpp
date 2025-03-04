@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:49:29 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/03 15:14:02 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/04 10:27:59 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -28,5 +26,3 @@ class	HumanB
 		void	setWeapon(Weapon& weapon);
 		void	attack(void);
 };
-
-#endif

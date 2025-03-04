@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/02/28 10:20:12 by codespace         #+#    #+#              #
-#    Updated: 2025/03/04 10:12:34 by jdhallen         ###   ########.fr        #
+#    Created: 2025/03/04 14:28:56 by jdhallen          #+#    #+#              #
+#    Updated: 2025/03/04 14:28:56 by jdhallen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex04
+NAME = ex00
 
 SRCS = main.cpp
 

@@ -6,14 +6,13 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:24:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/02/27 17:29:34 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/04 14:20:05 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctime>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <functional>
 #include "Account.hpp"
 #include <iostream>
@@ -70,9 +69,17 @@ void	Account::_displayTimestamp(void)
 	if ((1 + timeInfo->tm_mon) < 10)
 		fd << "0";
 	fd << (1 + timeInfo->tm_mon);
+	if ((1 + timeInfo->tm_mday) < 10)
+		fd << "0";
 	fd << timeInfo->tm_mday << "_" ;
+	if ((1 + timeInfo->tm_hour) < 10)
+		fd << "0";
 	fd << timeInfo->tm_hour;
+	if ((1 + timeInfo->tm_min) < 10)
+		fd << "0";
 	fd << timeInfo->tm_min;
+	if ((1 + timeInfo->tm_sec) < 10)
+		fd << "0";
 	fd << timeInfo->tm_sec << "]";
 	fd.close();
 }

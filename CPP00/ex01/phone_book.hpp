@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:56:10 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/02/25 14:55:01 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/04 13:39:44 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 # include <cstdlib>
 
 class Contact {
-private :
-	std::string phone_number;
-	std::string darkest_secret;
-public :
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
+	private :
+		std::string phone_number;
+		std::string darkest_secret;
+	public :
+		std::string first_name;
+		std::string last_name;
+		std::string nickname;
 	
 	void changeContact() {
 		std::cout << "Enter first name: ";
@@ -48,24 +48,6 @@ public :
 		std::cout << "Nickname: " << nickname << std::endl;
 		std::cout << "Phone number: " << phone_number << std::endl;
 		std::cout << "Darkest secret: " << darkest_secret << std::endl;
-	}
-
-	void display2() const {
-		std::cout << "First name" << " | ";
-		std::cout << "Last name " << " | ";
-		std::cout << "Nickname  " << " | ";
-		std::cout << "Phone nbr " << " | ";
-		std::cout << "Secret    " << std::endl;
-		std::cout << std::setw(10) << first_name;
-		std::cout << " | ";
-		std::cout << std::setw(10) <<  last_name;
-		std::cout << " | ";
-		std::cout << std::setw(10) <<  nickname;
-		std::cout << " | ";
-		std::cout << std::setw(10) <<  phone_number;
-		std::cout << " | ";
-		std::cout << std::setw(10) <<  darkest_secret;
-		std::cout << std::endl;
 	}
 };
 
