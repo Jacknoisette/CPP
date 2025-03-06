@@ -6,14 +6,14 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 14:28:56 by jdhallen          #+#    #+#              #
-#    Updated: 2025/03/05 13:26:56 by codespace        ###   ########.fr        #
+#    Updated: 2025/03/05 13:27:01 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex00
+NAME = ex01
 
 SRCS = main.cpp Fixed.cpp
 
