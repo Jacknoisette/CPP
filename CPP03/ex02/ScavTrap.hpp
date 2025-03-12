@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 10:33:01 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/12 11:49:30 by jdhallen         ###   ########.fr       */
+/*   Created: 2025/03/12 13:45:27 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/03/12 13:54:02 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAV_TRAP_HPP
-# define SCAV_TRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include <iostream>
 #include "ClapTrap.hpp"

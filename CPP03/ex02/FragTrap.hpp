@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 10:33:01 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/12 12:27:47 by jdhallen         ###   ########.fr       */
+/*   Created: 2025/03/12 13:45:39 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/03/12 13:53:58 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP
-# define FRAG_TRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include <iostream>
 #include "ClapTrap.hpp"
