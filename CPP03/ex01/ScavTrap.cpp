@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 09:26:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 11:50:29 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:22:28 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void ScavTrap::attack(const std::string& target){
 				std::cout << " This attack is useless !";
 			std::cout << std::endl;
 		}
-		if (energyPoint <= 0)
+		else if (energyPoint <= 0)
 			std::cout << "ScavTrap " << name << " have low energy he can't attack while he guards the gate" << std::endl;
-		if (hitPoint <= 0)
+		else if (hitPoint <= 0)
 			std::cout << "ScavTrap " << name << " seems dead" << std::endl;
 	}
 	else if (guardmode == false)
@@ -51,15 +51,17 @@ void ScavTrap::attack(const std::string& target){
 				std::cout << " This attack is useless !";
 			std::cout << std::endl;
 		}
-		if (energyPoint <= 0)
-			std::cout << "ScavTrap " << name << " have low energy he can't attack during patrol" << std::endl;
-		if (hitPoint <= 0)
+		else if (hitPoint <= 0)
 			std::cout << "ScavTrap " << name << " seems dead" << std::endl;
+		else if (energyPoint <= 0)
+			std::cout << "ScavTrap " << name << " have low energy he can't attack during patrol" << std::endl;
 	}
 }
 
 void ScavTrap::guardGate(void){
-	if (guardmode == false)
+	if (hitPoint <= 0)
+		std::cout << "ScavTrap " << name << " is dead he can't change guard position" << std::endl;
+	else if (guardmode == false)
 	{
 		guardmode = true;
 		std::cout << "ScavTrap " << name << " left patrol and is now guarding the gate" << std::endl;
