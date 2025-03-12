@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:33:01 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/12 09:53:56 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/12 11:00:01 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private :
+	protected :
 		std::string	name;
 		int			hitPoint;
 		int			energyPoint;
