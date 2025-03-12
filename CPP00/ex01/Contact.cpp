@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:32:33 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/04 18:16:27 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:09:51 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	Contact::setDarkestSecret(std::string str){
 void Contact::changeContact(void)
 {
 	std::string	str;
-	int			test = 6;
 	
 	std::cout << "Enter first name: ";
 	std::getline(std::cin >> std::ws, str);
