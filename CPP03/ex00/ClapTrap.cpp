@@ -3,25 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 09:26:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 15:02:26 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:46:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string _name){
-	name = _name;
-	hitPoint = 10;
-	energyPoint = 10;
-	attackDamage = 0;
+ClapTrap::ClapTrap(void): name("Random ClapTrap"), hitPoint(10), energyPoint(10), attackDamage(0){
+	std::cout << "Construction of ClapTrap " << name << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string _name): name(_name), hitPoint(10), energyPoint(10), attackDamage(0){
 	std::cout << "Construction of ClapTrap " << name << std::endl;
 }
 
 ClapTrap::~ClapTrap(void){
 	std::cout << "Destruction of ClapTrap " << name << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &copy){
+	*this = copy;
+	std::cout << "Construction of ClapTrap copy " << this->name << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &src){
+	std::cout << "Opperator ClapTrap " << this->name << " = " << src.name << std::endl;
+	this->name = src.name;
+	this->hitPoint = src.hitPoint;
+	this->energyPoint = src.energyPoint;
+	this->attackDamage = src.attackDamage;
+	return *this;
 }
 
 void ClapTrap::attack(const std::string& target){

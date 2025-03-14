@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 13:45:39 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/13 10:35:41 by codespace        ###   ########.fr       */
+/*   Created: 2025/03/13 09:44:58 by codespace         #+#    #+#             */
+/*   Updated: 2025/03/13 10:05:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
-#include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
-{
+class Animal{
+	protected :
+		std::string	type;
 	public :
-		FragTrap(void);
-		FragTrap(std::string _name);
-		~FragTrap(void);
-		FragTrap(const FragTrap &copy);
-		FragTrap &operator=(const FragTrap &src);
-		void highFivesGuys(void);
+		Animal(std::string _type = "");
+		~Animal(void);
 };
 
 #endif

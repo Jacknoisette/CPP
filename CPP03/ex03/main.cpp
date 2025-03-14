@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 09:37:50 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 15:07:25 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:45:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,36 @@
 
 int main(void)
 {
-	std::cout << "\033[33m";
-	ClapTrap Johny("Johny");
-	std::cout << "\033[34m";
-	ScavTrap Scavy("Scavy");
-	std::cout << "\033[36m";
-	FragTrap Checker("Checker");
-	std::cout << "\033[31m";
+	// std::cout << "\033[33m";
+	// ClapTrap Johny("Johny");
+	// std::cout << "\033[34m";
+	// ScavTrap Scavy("Scavy");
+	// std::cout << "\033[36m";
+	// FragTrap Checker("Checker");
+	// std::cout << "\033[31m";
 	DiamondTrap Grrrrr("Grrrrr");
-	std::cout << "\033[0m";
+	DiamondTrap eGrrrrr(Grrrrr);
+	// std::cout << "\033[0m";
 	
-	Johny.takeDamage(100);
-	Scavy.takeDamage(100);
-	Checker.takeDamage(100);
-	Grrrrr.takeDamage(70);
-	Johny.attack("(Who cares ?)");
-	Scavy.attack("(Who cares ?)");
-	Checker.attack("(Who cares ?)");
-	Grrrrr.attack("(Who cares ?)");
-	Johny.beRepaired(100);
-	Scavy.beRepaired(100);
-	Checker.beRepaired(100);
-	Grrrrr.beRepaired(70);
-	Scavy.guardGate();
-	Grrrrr.guardGate();
-	Checker.highFivesGuys();
-	Grrrrr.highFivesGuys();
-	Grrrrr.whoAmI();
+	// Johny.takeDamage(100);
+	// Scavy.takeDamage(100);
+	// Checker.takeDamage(100);
+	// Grrrrr.takeDamage(70);
+	// Johny.attack("(Who cares ?)");
+	// Scavy.attack("(Who cares ?)");
+	// Checker.attack("(Who cares ?)");
+	// Grrrrr.attack("(Who cares ?)");
+	// Johny.beRepaired(100);
+	// Scavy.beRepaired(100);
+	// Checker.beRepaired(100);
+	// Grrrrr.beRepaired(70);
+	// Scavy.guardGate();
+	// Grrrrr.guardGate();
+	// Checker.highFivesGuys();
+	// Grrrrr.highFivesGuys();
+	// Grrrrr.whoAmI();
+	eGrrrrr.attack("TARGET");
+	
 	// std::cout << "\033[31m";
 	// Johny.attack("Other ClapTrap");
 	// Johny.takeDamage(1);

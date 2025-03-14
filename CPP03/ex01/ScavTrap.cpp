@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:51:04 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 13:51:05 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:46:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(void): ClapTrap(){
+	hitPoint = 100;
+	energyPoint = 50;
+	attackDamage = 20;
+	guardmode = false;
+	std::cout << "Construction of ScavTrap " << name << ". He start in patrol mode" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string _name): ClapTrap(_name){
 	hitPoint = 100;
@@ -22,6 +30,20 @@ ScavTrap::ScavTrap(std::string _name): ClapTrap(_name){
 
 ScavTrap::~ScavTrap(void){
 	std::cout << "Destruction of ScavTrap " << name << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy){
+	*this = copy;
+	std::cout << "Construction of ScavTrap copy " << this->name << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &src){
+	std::cout << "Opperator ScavTrap " << this->name << " = " << src.name << std::endl;
+	this->name = src.name;
+	this->hitPoint = src.hitPoint;
+	this->energyPoint = src.energyPoint;
+	this->attackDamage = src.attackDamage;
+	return *this;
 }
 
 void ScavTrap::attack(const std::string& target){

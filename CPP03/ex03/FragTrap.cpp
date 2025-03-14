@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:09 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 13:45:10 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:46:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap(void): ClapTrap(){
+	hitPoint = 100;
+	energyPoint = 100;
+	attackDamage = 30;
+	std::cout << "Construction of FragTrap " << name << ". Looking for someone to high five" << std::endl;
+}
 
 FragTrap::FragTrap(std::string _name): ClapTrap(_name){
 	hitPoint = 100;
@@ -21,6 +28,20 @@ FragTrap::FragTrap(std::string _name): ClapTrap(_name){
 
 FragTrap::~FragTrap(void){
 	std::cout << "Destruction of FragTrap " << name << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy){
+	*this = copy;
+	std::cout << "Construction of FragTrap copy " << this->name << std::endl;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &src){
+	std::cout << "Opperator FragTrap " << this->name << " = " << src.name << std::endl;
+	this->name = src.name;
+	this->hitPoint = src.hitPoint;
+	this->energyPoint = src.energyPoint;
+	this->attackDamage = src.attackDamage;
+	return *this;
 }
 
 void FragTrap::highFivesGuys(void){

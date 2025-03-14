@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:04 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 15:03:32 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:46:14 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
+DiamondTrap::DiamondTrap(void): ClapTrap("_clap_name") ,ScavTrap(), FragTrap(), name("Random DiamondTrap"){
+	hitPoint = FragTrap::hitPoint;
+	energyPoint =  ScavTrap::energyPoint;
+	attackDamage =  FragTrap::attackDamage;
+	std::cout << "Construction of DiamondTrap " << name << ". It does not look natural" << std::endl;
+}
 
 DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name") ,ScavTrap(_name), FragTrap(_name){
 	name = _name;
@@ -22,6 +29,20 @@ DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name") ,Sca
 
 DiamondTrap::~DiamondTrap(void){
 	std::cout << "Destruction of DiamondTrap " << name << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap(copy), ScavTrap(copy), FragTrap(copy){
+	*this = copy;
+	std::cout << "Construction of DiamondTrap copy " << this->name << std::endl;
+}
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src){
+	std::cout << "Opperator DiamondTrap " << this->name << " = " << src.name << std::endl;
+	this->name = src.name;
+	this->hitPoint = src.hitPoint;
+	this->energyPoint = src.energyPoint;
+	this->attackDamage = src.attackDamage;
+	return *this;
 }
 
 void DiamondTrap::whoAmI(void){

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:13 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 14:03:51 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:36:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@
 class FragTrap : virtual public ClapTrap
 {
 	public :
+		FragTrap(void);
 		FragTrap(std::string _name);
 		~FragTrap(void);
+		FragTrap(const FragTrap &copy);
+		FragTrap &operator=(const FragTrap &src);
 		void highFivesGuys(void);
 };
 
