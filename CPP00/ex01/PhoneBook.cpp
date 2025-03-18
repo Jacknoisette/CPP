@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:06:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 09:06:59 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:14:45 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ int main(void)
 	PhoneBook	phonebook;
 	std::string	str;
 
+	std::cout << "Welcome in the PhoneBook" << std::endl;
+	std::cout << "Here you can do the following actions :" << std::endl;
+	std::cout << "ADD (Add a contact to the Phonebook 8 max)" << std::endl;
+	std::cout << "SEARCH (Give you all the informations on a contact 0 - 7)" << std::endl;
+	std::cout << "EXIT (Exit the PhoneBook, all informations will be lost)\n" << std::endl;
 	phonebook.contactCount = 0;
 	while (1)
 	{

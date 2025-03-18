@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:44:58 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 10:58:19 by codespace        ###   ########.fr       */
+/*   Created: 2025/03/18 15:03:50 by codespace         #+#    #+#             */
+/*   Updated: 2025/03/18 16:00:11 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#include "Cure.hpp"
 
-#include <iostream>
-#include "WrongAnimal.hpp"
+Cure::Cure(void) : AMateria("Cure"){}
 
-class WrongCat : public WrongAnimal{
-	protected :
-		std::string	type;
-	public :
-        WrongCat(void);
-		~WrongCat(void);
-		WrongCat(const WrongCat &copy);
-		WrongCat &operator=(const WrongCat &src);
-		std::string getType(void) const;
-		void	makeSound(void) const;
-};
+Cure::~Cure(){}
 
-#endif
+Cure	&Cure::operator=(const Cure &src){
+    this->type = src.type;
+	return *this;
+}
+
+std::string const & Cure::getType() const{
+    
+}
+
+AMateria* Cure::clone() const{
+	return new Cure();
+}
+
+void Cure::use(ICharacter& _target){
+    std::cout << "* heals " << _target.getName() << "'s wounds *" << std::endl;
+}
+

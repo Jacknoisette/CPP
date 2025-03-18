@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:45 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/13 10:46:39 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/14 09:37:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy){
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &src){
-	std::cout << "Opperator FragTrap " << this->name << " = " << src.name << std::endl;
+	std::cout << "Operator FragTrap " << this->name << " = " << src.name << std::endl;
 	this->name = src.name;
 	this->hitPoint = src.hitPoint;
 	this->energyPoint = src.energyPoint;

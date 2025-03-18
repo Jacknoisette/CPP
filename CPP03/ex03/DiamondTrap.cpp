@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:04 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/13 10:46:14 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/14 09:37:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &copy): ClapTrap(copy), ScavTrap(copy
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src){
-	std::cout << "Opperator DiamondTrap " << this->name << " = " << src.name << std::endl;
+	std::cout << "Operator DiamondTrap " << this->name << " = " << src.name << std::endl;
 	this->name = src.name;
 	this->hitPoint = src.hitPoint;
 	this->energyPoint = src.energyPoint;

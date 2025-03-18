@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:34 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/13 10:46:34 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/14 09:37:51 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy){
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &src){
-	std::cout << "Opperator ScavTrap " << this->name << " = " << src.name << std::endl;
+	std::cout << "Operator ScavTrap " << this->name << " = " << src.name << std::endl;
 	this->name = src.name;
 	this->hitPoint = src.hitPoint;
 	this->energyPoint = src.energyPoint;

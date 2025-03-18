@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:44:58 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 10:58:19 by codespace        ###   ########.fr       */
+/*   Created: 2025/03/18 14:08:11 by codespace         #+#    #+#             */
+/*   Updated: 2025/03/18 14:27:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
-
-#include <iostream>
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 #include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-class WrongCat : public WrongAnimal{
-	protected :
-		std::string	type;
-	public :
-        WrongCat(void);
-		~WrongCat(void);
-		WrongCat(const WrongCat &copy);
-		WrongCat &operator=(const WrongCat &src);
-		std::string getType(void) const;
-		void	makeSound(void) const;
-};
-
-#endif
+int main() {
+	int nbr = 10;
+	nbr = (nbr % 2) ? nbr - 1 : nbr;
+	Animal* animals[nbr];
+	
+	for (int i = 0; i < nbr; ++i) {
+		if (i < (nbr / 2))	
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	for (int i = 0; i < nbr; ++i) {
+		delete animals[i];
+	}
+	return 0;
+}

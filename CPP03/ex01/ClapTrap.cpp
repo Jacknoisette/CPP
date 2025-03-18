@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 09:26:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/13 10:46:52 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/14 09:37:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy){
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &src){
-	std::cout << "Opperator ClapTrap " << this->name << " = " << src.name << std::endl;
+	std::cout << "Operator ClapTrap " << this->name << " = " << src.name << std::endl;
 	this->name = src.name;
 	this->hitPoint = src.hitPoint;
 	this->energyPoint = src.energyPoint;
