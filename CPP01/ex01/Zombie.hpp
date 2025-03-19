@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 10:23:23 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/03 13:00:22 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 10:35:42 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ class   Zombie{
         ~Zombie(void);
 
         void announce(void) const;
-        
+        void setName(std::string name);
 };
 
-Zombie* newZombie(std::string name);
 Zombie* zombieHorde(int N, std::string name);
 
 

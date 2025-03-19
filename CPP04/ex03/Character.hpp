@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:36:45 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 16:23:57 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 12:47:25 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
-class Character: ICharacter{
+class Character: public ICharacter{
 	private :
 		std::string name;
 		AMateria* inventory[4];
@@ -25,12 +25,12 @@ class Character: ICharacter{
 		Character(std::string _name);
 		Character(const Character &copy);
 		Character &operator=(const Character &src);
-		virtual ~Character();
-		virtual std::string const & getName() const;
+		~Character(void);
+		std::string const & getName() const;
 		
-		virtual void equip(AMateria* m);
-		virtual void unequip(int idx);
-		virtual void use(int idx, Character& target);
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 };
 
 

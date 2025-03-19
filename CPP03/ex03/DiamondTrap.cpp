@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:04 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/14 09:37:30 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 11:23:45 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ DiamondTrap::DiamondTrap(void): ClapTrap("_clap_name") ,ScavTrap(), FragTrap(), 
 	hitPoint = FragTrap::hitPoint;
 	energyPoint =  ScavTrap::energyPoint;
 	attackDamage =  FragTrap::attackDamage;
+	guardmode = ScavTrap::guardmode;
 	std::cout << "Construction of DiamondTrap " << name << ". It does not look natural" << std::endl;
 }
 
@@ -24,6 +25,7 @@ DiamondTrap::DiamondTrap(std::string _name): ClapTrap(_name + "_clap_name") ,Sca
 	hitPoint = FragTrap::hitPoint;
 	energyPoint =  ScavTrap::energyPoint;
 	attackDamage =  FragTrap::attackDamage;
+	guardmode = ScavTrap::guardmode;
 	std::cout << "Construction of DiamondTrap " << name << ". It does not look natural" << std::endl;
 }
 
@@ -42,6 +44,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &src){
 	this->hitPoint = src.hitPoint;
 	this->energyPoint = src.energyPoint;
 	this->attackDamage = src.attackDamage;
+	this->guardmode = src.guardmode;
 	return *this;
 }
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:03:50 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 16:00:11 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 15:20:33 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void) : AMateria("Cure"){}
+Cure::Cure(void) : AMateria("cure"){}
 
 Cure::~Cure(){}
 
@@ -22,7 +22,7 @@ Cure	&Cure::operator=(const Cure &src){
 }
 
 std::string const & Cure::getType() const{
-    
+    return type;
 }
 
 AMateria* Cure::clone() const{

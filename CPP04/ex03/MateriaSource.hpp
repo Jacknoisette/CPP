@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:37:48 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 16:26:38 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 12:58:51 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 #include <iostream>
 #include "IMateriaSource.hpp"
 
-class IMateriaSource
-{
+class MateriaSource: public IMateriaSource{
+	private :
+		AMateria* knowledge[4];
 	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*);
+		MateriaSource();
+		MateriaSource(const MateriaSource &copy);
+		MateriaSource &operator=(const MateriaSource &src);
+		virtual ~MateriaSource();
+		virtual void learnMateria(AMateria *m);
 		virtual AMateria* createMateria(std::string const & type);
 };
 

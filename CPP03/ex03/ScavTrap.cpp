@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:17 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/14 09:37:37 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 11:23:56 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src){
 	this->hitPoint = src.hitPoint;
 	this->energyPoint = src.energyPoint;
 	this->attackDamage = src.attackDamage;
+	this->guardmode = src.guardmode;
 	return *this;
 }
 

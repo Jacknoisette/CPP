@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:04:25 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 15:54:49 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 12:45:37 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #endif
 #define RESET "\033[0m"
 
-class Ice : AMateria{
+class Ice : public AMateria{
 	public :
 		Ice(void);
 		virtual ~Ice();

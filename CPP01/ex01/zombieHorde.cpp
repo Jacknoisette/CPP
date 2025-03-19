@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 10:22:24 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/03 13:01:00 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/19 10:36:39 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-Zombie* newZombie(std::string name)
-{
-	return (new Zombie(name));
-}
 
 Zombie* zombieHorde(int N, std::string name)
 {
@@ -23,6 +18,6 @@ Zombie* zombieHorde(int N, std::string name)
 		return (NULL);
 	Zombie* horde = new Zombie[N];
 	for (int i = 0; i < N; i++)
-		horde[i] = *newZombie(name);
+		horde[i].setName(name);
 	return (horde);
 }
