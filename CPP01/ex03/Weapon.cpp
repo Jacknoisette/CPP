@@ -3,30 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:49:48 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/03 14:59:40 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/20 15:08:22 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(std::string type)
-{
-	_type = type;
+Weapon::Weapon(void) : type("Stick"){
 }
 
-Weapon::~Weapon(void)
-{
+Weapon::Weapon(std::string _type) : type(_type){
 }
 
-std::string	Weapon::getType(void)	const
-{
-	return _type;
+Weapon::~Weapon(void){
 }
 
-void	Weapon::setType(std::string value)
-{
-	_type = value;
+std::string	Weapon::getType(void) const{
+	return type;
+}
+
+void	Weapon::setType(std::string value){
+	type = value;
 }

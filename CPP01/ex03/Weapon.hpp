@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:50:11 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/04 10:28:46 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:16:45 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 class	Weapon
 {
 	private :
-		std::string _type;
+		std::string type;
 
 	public :
-		Weapon(std::string type = "Stick");
+		Weapon(void);
+		Weapon(std::string _type);
 		~Weapon(void);
+		
 		std::string	getType(void)	const;
-		void	setType(std::string value);
+		void		setType(std::string _value);
 };

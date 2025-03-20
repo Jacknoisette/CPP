@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:48:52 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/03 15:02:36 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/20 15:12:13 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon){}
-
-HumanA::~HumanA(void)
-{
+HumanA::HumanA(Weapon& _weapon) : name("Random Guy"), weapon(_weapon){
 }
 
-void	HumanA::attack(void)
-{
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
+HumanA::HumanA(std::string _name, Weapon& _weapon) : name(_name), weapon(_weapon){
+}
+
+HumanA::~HumanA(void){
+}
+
+void	HumanA::attack(void){
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }
