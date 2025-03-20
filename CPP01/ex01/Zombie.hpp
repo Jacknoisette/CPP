@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 10:23:23 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 10:35:42 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:43:42 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class   Zombie{
         std::string _name;
         
     public :
-        Zombie(std::string name = "Foo");
+        Zombie(void);
+        Zombie(std::string name);
         ~Zombie(void);
 
         void announce(void) const;

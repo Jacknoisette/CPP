@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:32:33 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/12 15:09:51 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/20 11:10:45 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,45 @@ void Contact::changeContact(void)
 {
 	std::string	str;
 	
-	std::cout << "Enter first name: ";
-	std::getline(std::cin >> std::ws, str);
-	setFirstName(str);
-	std::cout << "Enter last name: ";
-	std::getline(std::cin, str);
-	setLastName(str);
-	std::cout << "Enter nickname: ";
-	std::getline(std::cin, str);
-	setNickname(str);
-	std::cout << "Enter phoneNumber: ";
-	std::getline(std::cin, str);
-	setPhoneNumber(str);
-	std::cout << "Enter darkest secret: ";
-	std::getline(std::cin, str);
-	setDarkestSecret(str);
+	do {
+		std::cout << "Enter first name: ";
+		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			throw std::runtime_error("EXIT");
+		setFirstName(str);
+	} while (str.empty());
+
+	do {
+		std::cout << "Enter last name: ";
+		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			throw std::runtime_error("EXIT");
+		setLastName(str);
+	} while (str.empty());
+
+	do {
+		std::cout << "Enter nickname: ";
+		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			throw std::runtime_error("EXIT");
+		setNickname(str);
+	} while (str.empty());
+
+	do {
+		std::cout << "Enter phoneNumber: ";
+		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			throw std::runtime_error("EXIT");
+		setPhoneNumber(str);
+	} while (str.empty());
+
+	do {
+		std::cout << "Enter darkest secret: ";
+		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			throw std::runtime_error("EXIT");
+		setDarkestSecret(str);
+	} while (str.empty());
 }
 
 void Contact::display(void) const

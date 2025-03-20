@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:06:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/18 11:14:45 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/20 12:51:52 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,17 @@ PhoneBook::PhoneBook(void){
 PhoneBook::~PhoneBook(void){
 }
 
+int	PhoneBook::getContactCount(void) const{
+	return contactCount;
+}
+
+void	PhoneBook::setContactCount(int nbr){
+	contactCount = nbr;
+}
+
 void PhoneBook::addContact(const Contact& newContact){
 	contact[contactCount % 8] = newContact;
+	std::cout << newContact.getFirstName() << " added [" << (contactCount % 8) + 1 << "/8]" << std::endl;
 }
 
 void PhoneBook::displayPhoneBook(void){
@@ -31,7 +40,11 @@ void PhoneBook::displayPhoneBook(void){
 void	PhoneBook::add(void){
 	Contact	new_contact;
 	
-	new_contact.changeContact();
+	try {
+		new_contact.changeContact();
+	} catch (const std::runtime_error &e){
+		return ;
+	}
 	addContact(new_contact);
 	contactCount++;
 }
@@ -74,19 +87,25 @@ void	PhoneBook::printSearch(void)
 	std::cout << "\033[0m";
 }
 
-void	PhoneBook::search(void)
+void	PhoneBook::search(bool print)
 {
 	std::string	str;
 	int			result;
 	
-	printSearch();
-	std::cout << "ENTER CONTACT INDEX : ";
-	std::getline(std::cin, str);
+	if (print)
+		printSearch();
+	do {
+		std::cout << "ENTER CONTACT INDEX : ";
+		std::getline(std::cin, str);
+		if (std::cin.eof() || std ::cin.fail())
+			return ;
+	} while (str.empty());
 	for (int i = 0; str[i] != '\0'; i++)
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
 			std::cout << "\033[34mERROR : WRONG CHAR\033[0m" << std::endl;
+			search(false);
 			return ;
 		}
 	}
@@ -97,33 +116,3 @@ void	PhoneBook::search(void)
 		std::cout << "\033[34mERROR : INCORRECT INPUT\033[0m" << std::endl;
 }
 
-int main(void)
-{
-	PhoneBook	phonebook;
-	std::string	str;
-
-	std::cout << "Welcome in the PhoneBook" << std::endl;
-	std::cout << "Here you can do the following actions :" << std::endl;
-	std::cout << "ADD (Add a contact to the Phonebook 8 max)" << std::endl;
-	std::cout << "SEARCH (Give you all the informations on a contact 0 - 7)" << std::endl;
-	std::cout << "EXIT (Exit the PhoneBook, all informations will be lost)\n" << std::endl;
-	phonebook.contactCount = 0;
-	while (1)
-	{
-		std::getline(std::cin, str);
-		if (std::cin.eof() || std ::cin.fail())
-			break ;
-		if (str == "")
-			std::cout << "\033[F";
-		else if (str == "ADD")
-			phonebook.add();
-		else if (str == "SEARCH")
-			phonebook.search();
-		else if (str == "EXIT")
-			break ;
-		else if (str == "EXIT")
-			break ;
-		else
-			std::cout << "\033[F\033[J";
-	}
-}

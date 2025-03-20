@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:06:52 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/01/30 12:50:24 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/03/20 10:36:00 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int main(int argc, char **argv)
 {
-	int	i = 1;
-	int	j = 0;
+	int		i = 1;
+	int		j = 0;
 	
 	if (argc < 2)
 	{
@@ -32,8 +32,9 @@ int main(int argc, char **argv)
 			j++;
 		}
 		i++;
-		if (i < argc)
+		if (i < argc){
 			std::cout << " ";
+		}
 	}
 	std::cout << std::endl;
 	return (0);

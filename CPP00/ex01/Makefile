@@ -6,7 +6,7 @@
 #    By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 12:41:11 by jdhallen          #+#    #+#              #
-#    Updated: 2025/03/04 17:34:57 by jdhallen         ###   ########.fr        #
+#    Updated: 2025/03/20 12:35:49 by jdhallen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = phonebook
 
-SRCS = PhoneBook.cpp Contact.cpp
+SRCS = PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
