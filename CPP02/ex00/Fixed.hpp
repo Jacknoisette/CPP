@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:25:56 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/05 13:26:04 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/21 11:44:13 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	Fixed
 {
 	private :
-		static const int	fractionalBits = 8;
+		static const int	fractionalBits;
 		int					rawBits;
 	public :
 		Fixed(void);

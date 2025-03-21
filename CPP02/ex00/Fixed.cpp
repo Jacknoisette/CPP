@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:25:44 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/05 13:26:41 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/21 11:44:31 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void){
+const int	Fixed::fractionalBits = 8;
+
+Fixed::Fixed(void): rawBits(0){
 	std::cout << "Default constructor called" << std::endl;
-	rawBits = 0;
 }
 
 Fixed::~Fixed(void){

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:26:16 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/05 13:26:17 by codespace        ###   ########.fr       */
+/*   Updated: 2025/03/21 11:44:48 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	Fixed
 {
 	private :
-		static const int	fractionalBits = 8;
+		static const int	fractionalBits;
 		int					rawBits;
 	public :
 		Fixed(void);
@@ -32,7 +32,8 @@ class	Fixed
 		float toFloat(void) const;
 		int toInt(void) const;
 
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif
