@@ -6,11 +6,12 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:25:10 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/04 10:46:35 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:40:05 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef HARL_HPP
+# define HARL_HPP
 
 #include <iostream>
 
@@ -23,3 +24,5 @@ class	Harl{
 	public :
 		void	complain(std::string level);
 };
+
+#endif

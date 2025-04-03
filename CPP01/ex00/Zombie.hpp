@@ -6,17 +6,16 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 14:51:06 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/20 15:14:21 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/03 10:49:49 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#pragma once
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 
-class   Zombie{
+class	Zombie{
 
 	private :
 		std::string name;

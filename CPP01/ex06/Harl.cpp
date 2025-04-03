@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 10:25:05 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/04 14:17:52 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:44:54 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	Harl::complain(std::string level){
 				std::cout << std::endl;
 			}
 			break ;
-
 		default:
 			std::cout << "[ Probably complaining about ";
 			std::cout << "insignificant problems ]" << std::endl;

@@ -6,14 +6,15 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 13:49:29 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/20 15:12:04 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/03 11:03:03 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-#include <iostream>
-#include "Weapon.hpp"
+# include <iostream>
+# include "Weapon.hpp"
 
 class	HumanB
 {
@@ -27,3 +28,5 @@ class	HumanB
 		void	setWeapon(Weapon& _weapon);
 		void	attack(void);
 };
+
+#endif

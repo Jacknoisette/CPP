@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:25:44 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/21 11:44:31 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:14:42 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int Fixed::getRawBits(void) const {
 
 void Fixed::setRawBits(int const raw){
 	std::cout << "setRawBits member function called" << std::endl;
-	rawBits = raw << fractionalBits;
+	rawBits = raw;
 }

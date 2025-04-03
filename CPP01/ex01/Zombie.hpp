@@ -6,13 +6,12 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 14:50:45 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/20 15:01:39 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/03 10:53:23 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-#pragma once
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 
@@ -31,6 +30,5 @@ class   Zombie{
 };
 
 Zombie* zombieHorde(int N, std::string name);
-
 
 #endif
