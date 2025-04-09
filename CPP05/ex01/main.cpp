@@ -6,10 +6,11 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/08 15:04:17 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:56:35 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream> 
 #include <exception>
@@ -17,73 +18,93 @@
 int	test1(void)
 {
 	try	{
-		Bureaucrat Bureaucrat1("Subject1", 150);
+		Form Form1("Document1", 150, 100);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << RED << "ERROR1: " << e.what() << RESET << std::endl, -1);
 	}
 	try	{
-		Bureaucrat Bureaucrat2("Subject2", 1);
+		Form Form2("Document2", 10, 1);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << RED << "ERROR2: " << e.what() << RESET << std::endl, -1);
 
 	}
 	try	{
-		Bureaucrat Bureaucrat3("Subject3", 200);
+		Form Form3("Document3", 200, 150);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << RED << "ERROR3: " << e.what() << RESET << std::endl, -1);
 	}
 	try	{
-		Bureaucrat Bureaucrat4("Subject4", 0);
+		Form Formt4("Document4", 0, -1);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << RED << "ERROR4: " << e.what() << RESET << std::endl, -1);
 	}
 	return (0);
 }
 
 int	test2(void)
 {
-	Bureaucrat Subject;
-	std::cout << Subject << std::endl;
+	Bureaucrat	Guy("Guy the Form guy", 101);
+	Form		File1;
+	Form		File2("Classic Form", 100, 80);
+	std::cout << File1 << std::endl;
+	std::cout << File2 << std::endl;
+	std::cout << Guy << std::endl;
 	try {
-		Subject.incrementGrade(140);
-		std::cout << Subject << std::endl;
+		File1.beSigned(Guy);
+		std::cout << File1 << std::endl;
+		std::cout << Guy << std::endl;
 	}
 	catch (std::exception & e) {
-		return (std::cout << "ERROR: " << e.what() << " at " << Subject << std::endl, -1);
+		return (std::cout << RED << "ERROR: " << e.what() << " at " << File1 << RESET << std::endl, -1);
 	}
 	try {
-		Subject.decrementGrade(150);
-		std::cout << Subject << std::endl;
+		Guy.signForm(File2);
+		std::cout << File2 << std::endl;
+		std::cout << Guy << std::endl;
 	}
 	catch (std::exception & e) {
-		return (std::cout << "ERROR: " << e.what() << " at " << Subject << std::endl, -1);
+		return (std::cout << RED << "ERROR: " << e.what() << " at " << File2 << RESET << std::endl, -1);
 	}
-	std::cout << Subject << std::endl;
+	std::cout << File1 << std::endl;
+	std::cout << File2 << std::endl;
+	std::cout << Guy << std::endl;
 	return (0);
 }
 
 int	test3(void)
 {
-	Bureaucrat Entity1("Tarcuae", 50);
-	Bureaucrat Entity2("Rub", 71);
-	Bureaucrat Entity3(Entity1);
+	Bureaucrat	Emperor("The Emperor", 1);
+	Form		Thing1("the OG Form", 50, 40);
+	Form		Thing2("the Other Form not the OG one", 71, 60);
+	Form 		Thing3(Thing1);
 
-	std::cout << Entity1 << Entity2 << Entity3 << std::endl;
-	Entity3 = Entity2;
-	std::cout << Entity1 << Entity2 << Entity3 << std::endl;
+	std::cout << WHITE << Thing1 << RESET << std::endl;
+	std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
+	std::cout << GREY << Thing3 << RESET << std::endl;
+	Thing2.beSigned(Emperor);
+	Thing3 = Thing2;
+	std::cout << WHITE << Thing1 << RESET << std::endl;
+	std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
+	std::cout << GREY << Thing3 << RESET << std::endl;
 	return (0);
 }
 
 int main(void)
 {
 	if (test1() == -1)
-		std::cout << "test1 failed" << std::endl;
+		std::cout << RED << "test1 failed" << RESET << std::endl;
+	else
+		std::cout << LIGHT_GREEN << "test1 OK" << RESET << std::endl;
 	if (test2() == -1)
-		std::cout << "test2 failed" << std::endl;
+		std::cout << RED << "test2 failed" << RESET << std::endl;
+	else
+		std::cout << LIGHT_GREEN << "test2 OK" << RESET << std::endl;
 	if (test3() == -1)
-		std::cout << "test1 failed" << std::endl;
+		std::cout << RED << "test3 failed" << RESET << std::endl;
+	else
+		std::cout << LIGHT_GREEN << "test3 OK" << RESET << std::endl;
 }

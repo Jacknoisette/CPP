@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:12:36 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 12:04:31 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:43:48 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 # include <iostream> 
 # include <exception>
 # include <string.h>
+
+#define RED "\033[1;30m"
+#define PURPLE "\033[1;31m"
+#define WHITE "\033[1;32m"
+#define YELLOW "\033[1;33m"
+#define ORANGE "\033[1;34m"
+#define LIGHT_YELLOW "\033[1;35m"
+#define LIGHT_GREEN "\033[1;36m"
+#define GREY "\033[1;37m"
+#define RESET "\033[0m"
+
+class AForm;
 
 class BException : public std::exception {
 	protected:
@@ -33,8 +45,6 @@ class Bureaucrat {
 
 	public :
 		Bureaucrat(void);
-		Bureaucrat(int _grade);
-		Bureaucrat(std::string _name);
 		Bureaucrat(std::string _name, int _grade);
 		~Bureaucrat(void);
 		Bureaucrat(const Bureaucrat &copy);
@@ -43,6 +53,8 @@ class Bureaucrat {
 		int					getGrade() const;
 		void				incrementGrade(int increment);
 		void				decrementGrade(int decrement);
+		void				signForm(AForm &form);
+		void				executeForm(AForm const &form);
 		class GradeTooHighException : public BException {
 			public :
 				GradeTooHighException(void);

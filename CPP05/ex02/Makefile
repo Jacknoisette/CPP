@@ -6,16 +6,19 @@
 #    By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 14:28:56 by jdhallen          #+#    #+#              #
-#    Updated: 2025/04/09 14:10:56 by jdhallen         ###   ########.fr        #
+#    Updated: 2025/04/09 14:10:52 by jdhallen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex01
+NAME = ex02
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

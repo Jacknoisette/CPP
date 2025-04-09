@@ -19,7 +19,7 @@ execute() {
 	cd CPP0$I/ex0$N
 	make -s re
 	make -s clean
-	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile")
+	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile" ! -name "*_shrubbery")
 	animate_text $exec
 	if [ -x "$exec" ]; then
 		valgrind --leak-check=full --track-origins=yes --quiet ./$exec

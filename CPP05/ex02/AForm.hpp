@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 15:21:10 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:01:02 by jdhallen         ###   ########.fr       */
+/*   Created: 2025/04/09 11:30:11 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/04/09 16:00:46 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream> 
 # include <exception>
@@ -27,24 +27,28 @@ class FException : public std::exception {
 		virtual const char *what(void) const throw();
 };
 
-class Form {
+class AForm {
 	private :
 		const std::string	name;
 		const int			grade_to_sign;
 		const int			grade_to_exec;
 		bool				is_signed;
+		std::string			target;
 
 	public :
-		Form(void);
-		Form(std::string _name, int _grade_to_sign, int _grade_to_exec);
-		virtual	~Form(void);
-		Form(const Form &copy);
-		Form &operator=(const Form &src);
+		AForm(void);
+		AForm(std::string _name, int _grade_to_sign, int _grade_to_exec, std::string _target);
+		virtual	~AForm(void);
+		AForm(const AForm &copy);
+		AForm &operator=(const AForm &src);
 		const std::string	getName(void) const;
 		int					getGradeToSign(void) const;
 		int					getGradeToExec(void) const;
 		bool				getIsSigned(void) const;
+		std::string			getTarget(void) const;
 		void				beSigned(Bureaucrat &executor);
+		void				setSigned(bool value);
+		virtual void		execute(Bureaucrat const &executor) const = 0;
 		class GradeTooHighException : public FException {
 			public :
 				GradeTooHighException(std::string message);
@@ -57,6 +61,6 @@ class Form {
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, Form& obj);
+std::ostream& operator<<(std::ostream& os, AForm& obj);
 
 #endif

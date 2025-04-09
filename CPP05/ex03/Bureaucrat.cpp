@@ -6,12 +6,12 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:11:15 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 12:04:20 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:43:28 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 //BExeption
 BException::BException(const std::string &_message): message(_message){
@@ -25,7 +25,6 @@ BException::~BException(void) throw(){
 }
 
 //GradeTooHighException
-
 Bureaucrat::GradeTooHighException::GradeTooHighException(void): BException("Grade is too high !"){
 }
 
@@ -33,7 +32,6 @@ Bureaucrat::GradeTooHighException::~GradeTooHighException(void) throw(){
 }
 
 //GradeTooLowException
-
 Bureaucrat::GradeTooLowException::GradeTooLowException(void): BException("Grade is too low !"){
 }
 
@@ -89,8 +87,12 @@ void	Bureaucrat::decrementGrade(int decrement){
 		throw GradeTooLowException();
 }
 
-void	Bureaucrat::signForm(Form &form){
+void	Bureaucrat::signForm(AForm &form){
 	form.beSigned(*this);
+}
+
+void	Bureaucrat::executeForm(AForm const &form){
+	form.execute(*this);
 }
 
 std::ostream& operator<<(std::ostream& output, Bureaucrat& obj){

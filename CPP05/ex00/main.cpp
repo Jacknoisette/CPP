@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/08 15:04:17 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:57:06 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,26 @@ int	test1(void)
 		Bureaucrat Bureaucrat1("Subject1", 150);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << "ERROR1: " << e.what() << std::endl, -1);
 	}
 	try	{
 		Bureaucrat Bureaucrat2("Subject2", 1);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << "ERROR2: " << e.what() << std::endl, -1);
 
 	}
 	try	{
 		Bureaucrat Bureaucrat3("Subject3", 200);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << "ERROR3: " << e.what() << std::endl, -1);
 	}
 	try	{
 		Bureaucrat Bureaucrat4("Subject4", 0);
 	}
 	catch (std::exception & e)	{
-		return (std::cout << "ERROR: " << e.what() << std::endl, -1);
+		return (std::cout << "ERROR4: " << e.what() << std::endl, -1);
 	}
 	return (0);
 }
@@ -82,8 +82,14 @@ int main(void)
 {
 	if (test1() == -1)
 		std::cout << "test1 failed" << std::endl;
+	else
+		std::cout << "test1 OK" << std::endl;
 	if (test2() == -1)
 		std::cout << "test2 failed" << std::endl;
+	else
+		std::cout << "test2 OK" << std::endl;
 	if (test3() == -1)
-		std::cout << "test1 failed" << std::endl;
+		std::cout << "test3 failed" << std::endl;
+	else
+		std::cout << "test3 OK" << std::endl;
 }

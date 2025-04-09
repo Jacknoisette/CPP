@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:11:15 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/08 15:03:12 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/09 12:04:32 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src){
 	return (*this);
 }
 
-const std::string	Bureaucrat::getName(void){
+const std::string	Bureaucrat::getName(void) const{
 	return (name);
 }
 
-int	Bureaucrat::getGrade(void){
+int	Bureaucrat::getGrade(void) const{
 	return (grade);
 }
 
