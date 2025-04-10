@@ -1,6 +1,6 @@
 MODE="Group"
 
-I=5
+I=6
 N=0
 
 animate_text() {

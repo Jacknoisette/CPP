@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:30:11 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:00:26 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/10 10:03:42 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AForm {
 	public :
 		AForm(void);
 		AForm(std::string _name, int _grade_to_sign, int _grade_to_exec, std::string _target);
-		virtual ~AForm(void);
+		virtual	~AForm(void);
 		AForm(const AForm &copy);
 		AForm &operator=(const AForm &src);
 		const std::string	getName(void) const;
