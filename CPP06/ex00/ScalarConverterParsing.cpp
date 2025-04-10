@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:51:31 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/10 15:26:37 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:36:24 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,21 +130,39 @@ void	*checkLimitType(const std::string &input, int type){
 		}
 		case 2:
 		{
-			double	*floating = new double(std::strtod(input.c_str(), &end));
-			if (errno == ERANGE || *floating < -std::numeric_limits<float>::max() || (floating)[0] > std::numeric_limits<float>::max())
-			{
-				delete floating;
-				throw std::runtime_error("Incorrect float");
+			double *floating;
+			if (input == "nanf"){
+				floating = new double(NAN);
+			} else if (input == "+inff"){
+				floating = new double(INFINITY); 
+			} else if (input == "-inff"){
+				floating = new double(-INFINITY);
+			} else {
+				floating = new double(std::strtod(input.c_str(), &end));
+				if (errno == ERANGE || *floating < -std::numeric_limits<float>::max() || (floating)[0] > std::numeric_limits<float>::max())
+				{
+					delete floating;
+					throw std::runtime_error("Incorrect float");
+				}
 			}
 			return (floating);
 		}
 		case 3:
 		{
-			long double	*double_floating = new long double(std::strtold(input.c_str(), &end));
-			if (errno == ERANGE || *double_floating < -std::numeric_limits<double>::max() || (double_floating)[0] > std::numeric_limits<double>::max())
-			{
-				delete double_floating;
-				throw std::runtime_error("Incorrect double");
+			long double	*double_floating;
+			if (input == "nan"){
+				double_floating = new long double(NAN);
+			} else if (input == "+inf"){
+				double_floating = new long double(INFINITY); 
+			} else if (input == "-inf"){
+				double_floating = new long double(-INFINITY);
+			} else {
+				double_floating = new long double(std::strtold(input.c_str(), &end));
+				if (errno == ERANGE || *double_floating < -std::numeric_limits<double>::max() || (double_floating)[0] > std::numeric_limits<double>::max())
+				{
+					delete double_floating;
+					throw std::runtime_error("Incorrect double");
+				}
 			}
 			return (double_floating);
 		}

@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 10:27:42 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/10 15:26:46 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:32:10 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <string>
 # include <sstream>
 # include <iomanip>
+# include <cmath>
 
 #define RED "\033[1;30m"
 #define PURPLE "\033[1;31m"
