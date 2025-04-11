@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/11 07:32:10 by codespace        ###   ########.fr       */
+/*   Created: 2025/04/11 09:14:44 by codespace         #+#    #+#             */
+/*   Updated: 2025/04/11 10:17:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include <iostream> 
+#include "A.hpp"
 
-int main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (std::cout << "Wrong arg" << std::endl, 1);
-	ScalarConverter::convert(argv[1]);
+A::A(void){
+}
+
+A::~A(void){
+}
+
+std::ostream& operator<<(std::ostream& os, const A obj){
+    (void)obj;
+	os << "A";
+	return (os);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 10:27:42 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/10 15:32:10 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/11 08:48:01 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 class ScalarConverter {
 	private :
 		ScalarConverter(void);
-		virtual ~ScalarConverter(void);
+		~ScalarConverter(void);
 	public :
 		static void	convert(const std::string &input);
 };
