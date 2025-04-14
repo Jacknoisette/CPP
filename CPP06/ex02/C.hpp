@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 09:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/11 10:16:39 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/14 11:19:57 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,5 @@ class C : public Base{
 		C(void);
 		virtual ~C(void);
 };
-
-std::ostream& operator<<(std::ostream& os, const C obj);
 
 #endif
