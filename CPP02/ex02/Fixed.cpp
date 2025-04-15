@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:26:21 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/15 10:35:36 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:19:08 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ Fixed Fixed::operator--(int){
 	return temp;
 }  // x--
 
-Fixed& min(Fixed& a, Fixed& b){
+Fixed& Fixed::min(Fixed& a, Fixed& b){
 	return (a < b) ? a : b;
 }
 
