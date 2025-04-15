@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 13:26:21 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/21 11:44:38 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:35:56 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::~Fixed(void){
 
 Fixed::Fixed(const Fixed& ref){
 	std::cout << "Copy constructor called" << std::endl;
-	rawBits = ref.getRawBits();
+	*this = ref;
 }
 
 Fixed& Fixed::operator=(const Fixed& ref) {
