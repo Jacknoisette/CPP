@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/15 15:05:04 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:11:30 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	test1(void)
 void custom_seed() {
 	static unsigned int counter = 8;
 	srand((counter - 1) * counter * time(0));
-    counter++;
+	counter++;
 }
 
 int	test2(void)

@@ -1,6 +1,6 @@
 MODE="Group"
 
-I=8
+I=9
 N=0
 
 animate_text() {
@@ -19,7 +19,7 @@ execute() {
 	cd CPP0$I/ex0$N
 	make -s re
 	make -s clean
-	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile" ! -name "*_shrubbery" ! -name "*.tpp")
+	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile" ! -name "*_shrubbery" ! -name "*.tpp" ! -name "*.csv" ! -name "*.txt")
 	animate_text $exec
 	if [ -x "$exec" ]; then
 		valgrind --leak-check=full --track-origins=yes --quiet ./$exec

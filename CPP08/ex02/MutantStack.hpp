@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:08:21 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/15 15:18:44 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/16 11:04:09 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@
 #define INT32_MAX (2147483647)
 
 template <typename T>
-class MutantStack : public std::stack{
+class MutantStack : public std::stack<T>{
 	public :
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		iterator begin();
+		iterator end();
 		MutantStack(void);
 		~MutantStack(void);
 		MutantStack(const MutantStack &cpy);
