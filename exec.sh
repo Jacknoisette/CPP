@@ -2,6 +2,7 @@ MODE="Group"
 
 I=9
 N=0
+ARG="";
 
 animate_text() {
 	text=$1
@@ -11,7 +12,14 @@ animate_text() {
         echo -n "$char"
         sleep 0.05
     done
-    echo
+    ARG=""
+    if [ "$I" = "9" ]; then
+    	echo -n " "
+    	read ARG
+    fi
+    if [ "$ARG" != "" ]; then
+    	echo
+    fi
 }
 
 execute() {
@@ -22,7 +30,7 @@ execute() {
 	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile" ! -name "*_shrubbery" ! -name "*.tpp" ! -name "*.csv" ! -name "*.txt")
 	animate_text $exec
 	if [ -x "$exec" ]; then
-		valgrind --leak-check=full --track-origins=yes --quiet ./$exec
+		valgrind --leak-check=full --track-origins=yes --quiet ./$exec "$ARG"
 	else
 		echo No exec file in CPP0$I ex0$N
 	fi

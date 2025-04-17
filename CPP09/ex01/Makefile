@@ -6,16 +6,16 @@
 #    By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 14:28:56 by jdhallen          #+#    #+#              #
-#    Updated: 2025/04/14 11:21:53 by jdhallen         ###   ########.fr        #
+#    Updated: 2025/04/17 13:47:17 by jdhallen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex01
+NAME = RPN
 
-SRCS = main.cpp
+SRCS = main.cpp RPN.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)

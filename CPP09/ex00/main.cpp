@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/16 15:14:00 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/17 11:53:50 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ int	getUserBtcInput(std::map<Date, float> *btcDataBase, std::string filename){
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		return (std::cout << "Wrong Arg" << std::endl, -1);
+		return (std::cout << "Error: Wrong Arg" << std::endl, -1);
 	std::string filename = "data.csv";
 	std::string	input = argv[1];
 	
