@@ -1,7 +1,7 @@
-MODE="Group"
+MODE="Single"
 
 I=9
-N=0
+N=1
 ARG="";
 
 animate_text() {

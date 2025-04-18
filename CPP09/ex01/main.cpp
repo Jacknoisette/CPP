@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:58:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/17 15:21:27 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/18 09:52:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,30 @@ bool	isoperator(char chr)
 		if (chr == operators[i])
 			return (true);
 	return (false);
+
+}
+bool check_correct_tree(std::list<char> &rpn)
+{
+	std::list<char>::iterator rpnIt = rpn.begin();
+	std::list<char>::iterator rpnEnd = rpn.end();
+	
+	int count = 0;
+	while (rpnIt != rpnEnd)
+	{
+		if (isdigit(*rpnIt))
+			count++;
+		else if (isoperator(*rpnIt))
+			count -= 1;
+		else
+			return (std::cout << "Error: wrong operations" << std::endl, false);
+
+		if (count < 1 && isoperator(*rpnIt))
+			return (std::cout << "Error: wrong operations" << std::endl, false);
+		rpnIt++;
+	}
+	if (count == 1)
+		return (count == 1);
+	return (std::cout << "Error: wrong operations" << std::endl, false);
 }
 
 int	do_operation(int left, int right, char oprtr)
@@ -37,6 +61,8 @@ int	do_operation(int left, int right, char oprtr)
 		case 2 :
 			return (left * right);
 		case 3 :
+			if (left == 0 || right == 0)
+				throw std::runtime_error("Error: Impossible division by 0");
 			return (left / right);
 	}
 	throw std::runtime_error("Error: Invalid operator");
@@ -62,10 +88,10 @@ int	exec_branch(Branch *node){
 	return (0);
 }
 
-void	build_branch(std::list<char> &rpn, Branch *node){
+int	build_branch(std::list<char> &rpn, Branch *node){
 	std::list<char>::iterator rpnIt = rpn.end();
 	if (node == NULL)
-		return;
+		return (0);
 	rpnIt--;
 	char current = *rpnIt;
 	rpn.pop_back();
@@ -73,19 +99,21 @@ void	build_branch(std::list<char> &rpn, Branch *node){
 	{
 		node->setOprtr(current);
 		node->setBranchR(new Branch('X', 0, node, NULL, NULL, false));
-		build_branch(rpn, node->getBranchR());
+		if (build_branch(rpn, node->getBranchR()) == -1)
+			return (-1);
 		node->setBranchL(new Branch('X', 0, node, NULL, NULL, false));
-		build_branch(rpn, node->getBranchL());
+		if (build_branch(rpn, node->getBranchL()) == -1)
+			return (-1);
+		return (0);
 	}
 	else if (!isoperator(current)){
 		node->setValue(current - '0');
 		node->setHav(true);
-		return ;
+		return (0);
 	}
-	else {
-		std::cout << "Error: Invalid char" << std::endl;
-		return;
-	}
+	else
+		return (-1);
+	return (0);
 }
 
 bool	build_rpn(std::list<char> &rpn, Branch *trunc)
@@ -97,7 +125,8 @@ bool	build_rpn(std::list<char> &rpn, Branch *trunc)
 			return (std::cout << "Error: Invalid char" << std::endl, false);
 		return (true);
 	}
-	build_branch(rpn, trunc);
+	if (build_branch(rpn, trunc) == -1)
+		return (std::cout << "Error: Invalid char" << std::endl, false);
 	return (true);
 }
 
@@ -119,9 +148,9 @@ bool	init_rpn(const std::string& line, std::list<char> *rpn)
 	for (unsigned int i = 0; i < line.size(); i++)
 	{
 		if (i % 2 == 1 && line[i] != ' ')
-			return (std::cout << "Error: character" << std::endl, false);
+			return (std::cout << "Error: Invalid char" << std::endl, false);
 		if (i % 2 == 0 && line[i] == ' ')
-			return (std::cout << "Error: space" << std::endl, false);
+			return (std::cout << "Error: Invalid char" << std::endl, false);
 		if (line[i] != ' ')
 			rpn->push_back(line[i]);
 	}
@@ -150,27 +179,64 @@ void display(Branch *actual, const std::string& prefix = "", bool isLeft = true)
 	return ;
 }
 
+// int main(int argc, char **argv)
+// {
+// 	if (argc != 2)
+// 		return (std::cout << "Error: Wrong Arg" << std::endl, -1);
+// 	std::string	 line = argv[1];
+// 	std::list<char> rpn;
+// 	Branch			trunc;
+
+// 	if (!init_rpn(line, &rpn))
+// 		return (-1);
+// 	if (!check_rpn(rpn))
+// 		return (-1);
+// 	if (!check_correct_tree(rpn))
+// 		return (-1);
+// 	if (!build_rpn(rpn, &trunc))
+// 		return (-1);
+// 	display(&trunc);
+// 	if (exec_branch(&trunc) == -1)
+// 		return (-1);
+// 	display(&trunc);
+// 	std::cout << trunc.getValue() << std::endl;
+// 	return (0);
+// }
+
+#include <fstream>
+#include <fcntl.h>
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		return (std::cout << "Error: Wrong Arg" << std::endl, -1);
-	std::string	 line = argv[1];
-	std::list<char> rpn;
-	Branch			trunc;
-
-	if (!init_rpn(line, &rpn))
-		return (-1);
-	if (!check_rpn(rpn))
-		return (-1);
-	if (!build_rpn(rpn, &trunc))
-		return (-1);
-	if (exec_branch(&trunc) == -1)
-		return (-1);
-	display(&trunc);
-	std::cout << trunc.getValue() << std::endl;
+	return (std::cout << "Error: Wrong Arg" << std::endl, -1);
+	std::string	filename = argv[1];
+	std::ifstream fd1(filename.c_str());
+	
+	std::string line;
+	std::string line2;
+	while (std::getline(fd1, line)){
+		std::list<char> rpn;
+		Branch			trunc;
+		std::cout << "\n" << line << std::endl;
+		if (!std::getline(fd1, line2))
+			return (-1);
+		std::cout << line2 << std::endl;
+		std::cout << "My result : ";
+		if (!init_rpn(line, &rpn))
+			continue;
+		if (!check_rpn(rpn))
+			continue;
+		if (!check_correct_tree(rpn))
+			continue;
+		if (!build_rpn(rpn, &trunc))
+			continue;
+		if (exec_branch(&trunc) == -1)
+			continue;
+		// display(&trunc);
+		std::cout << trunc.getValue() << std::endl;
+	}
 	return (0);
 }
-
 
 // Branch *left = new Branch('*', 0 , NULL, NULL, NULL, false);
 //	 left->setBranchL(new Branch('X', 1, left, NULL, NULL, true));
