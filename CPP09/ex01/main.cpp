@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:58:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/18 09:52:41 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/22 11:25:24 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,72 +179,63 @@ void display(Branch *actual, const std::string& prefix = "", bool isLeft = true)
 	return ;
 }
 
-// int main(int argc, char **argv)
-// {
-// 	if (argc != 2)
-// 		return (std::cout << "Error: Wrong Arg" << std::endl, -1);
-// 	std::string	 line = argv[1];
-// 	std::list<char> rpn;
-// 	Branch			trunc;
-
-// 	if (!init_rpn(line, &rpn))
-// 		return (-1);
-// 	if (!check_rpn(rpn))
-// 		return (-1);
-// 	if (!check_correct_tree(rpn))
-// 		return (-1);
-// 	if (!build_rpn(rpn, &trunc))
-// 		return (-1);
-// 	display(&trunc);
-// 	if (exec_branch(&trunc) == -1)
-// 		return (-1);
-// 	display(&trunc);
-// 	std::cout << trunc.getValue() << std::endl;
-// 	return (0);
-// }
-
-#include <fstream>
-#include <fcntl.h>
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-	return (std::cout << "Error: Wrong Arg" << std::endl, -1);
-	std::string	filename = argv[1];
-	std::ifstream fd1(filename.c_str());
-	
-	std::string line;
-	std::string line2;
-	while (std::getline(fd1, line)){
-		std::list<char> rpn;
-		Branch			trunc;
-		std::cout << "\n" << line << std::endl;
-		if (!std::getline(fd1, line2))
-			return (-1);
-		std::cout << line2 << std::endl;
-		std::cout << "My result : ";
-		if (!init_rpn(line, &rpn))
-			continue;
-		if (!check_rpn(rpn))
-			continue;
-		if (!check_correct_tree(rpn))
-			continue;
-		if (!build_rpn(rpn, &trunc))
-			continue;
-		if (exec_branch(&trunc) == -1)
-			continue;
-		// display(&trunc);
-		std::cout << trunc.getValue() << std::endl;
-	}
+		return (std::cout << "Error: Wrong Arg" << std::endl, -1);
+	std::string	 line = argv[1];
+	std::list<char> rpn;
+	Branch			trunc;
+
+	if (!init_rpn(line, &rpn))
+		return (-1);
+	if (!check_rpn(rpn))
+		return (-1);
+	if (!check_correct_tree(rpn))
+		return (-1);
+	if (!build_rpn(rpn, &trunc))
+		return (-1);
+	display(&trunc);
+	std::cout << std::endl;
+	if (exec_branch(&trunc) == -1)
+		return (-1);
+	display(&trunc);
+	std::cout << std::endl;
+	std::cout << trunc.getValue() << std::endl;
 	return (0);
 }
 
-// Branch *left = new Branch('*', 0 , NULL, NULL, NULL, false);
-//	 left->setBranchL(new Branch('X', 1, left, NULL, NULL, true));
-//	 left->setBranchR(new Branch('X', 2, left, NULL, NULL, true));
-
-//	 Branch *right = new Branch('X', 3, left, NULL, NULL, true);
-
-//	 Branch *root = new Branch('+', 0, NULL, left, right, false);
-
-//	 // Affichage de l'arbre
-//	 display(root);
+// #include <fstream>
+// #include <fcntl.h>
+// int main(int argc, char **argv)
+// {
+// 	if (argc != 2)
+// 	return (std::cout << "Error: Wrong Arg" << std::endl, -1);
+// 	std::string	filename = argv[1];
+// 	std::ifstream fd1(filename.c_str());
+	
+// 	std::string line;
+// 	std::string line2;
+// 	while (std::getline(fd1, line)){
+// 		std::list<char> rpn;
+// 		Branch			trunc;
+// 		std::cout << "\n" << line << std::endl;
+// 		if (!std::getline(fd1, line2))
+// 			return (-1);
+// 		std::cout << line2 << std::endl;
+// 		std::cout << "My result : ";
+// 		if (!init_rpn(line, &rpn))
+// 			continue;
+// 		if (!check_rpn(rpn))
+// 			continue;
+// 		if (!check_correct_tree(rpn))
+// 			continue;
+// 		if (!build_rpn(rpn, &trunc))
+// 			continue;
+// 		if (exec_branch(&trunc) == -1)
+// 			continue;
+// 		// display(&trunc);
+// 		std::cout << trunc.getValue() << std::endl;
+// 	}
+// 	return (0);
+// }

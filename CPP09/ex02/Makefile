@@ -6,16 +6,16 @@
 #    By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/04 14:28:56 by jdhallen          #+#    #+#              #
-#    Updated: 2025/04/16 14:55:51 by jdhallen         ###   ########.fr        #
+#    Updated: 2025/04/22 13:46:17 by jdhallen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = ex02
+NAME = PmergeMe
 
-SRCS = main.cpp
+SRCS = main.cpp PmergeMe.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)

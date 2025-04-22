@@ -1,7 +1,7 @@
 MODE="Single"
 
 I=9
-N=1
+N=2
 ARG="";
 
 animate_text() {
@@ -30,7 +30,7 @@ execute() {
 	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile" ! -name "*_shrubbery" ! -name "*.tpp" ! -name "*.csv" ! -name "*.txt")
 	animate_text $exec
 	if [ -x "$exec" ]; then
-		valgrind --leak-check=full --track-origins=yes --quiet ./$exec "$ARG"
+		eval valgrind --leak-check=full --track-origins=yes --quiet ./$exec "$ARG"
 	else
 		echo No exec file in CPP0$I ex0$N
 	fi

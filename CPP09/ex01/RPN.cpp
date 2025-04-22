@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 11:38:20 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/17 14:40:55 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/22 11:23:15 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,6 @@ Branch &Branch::operator=(const Branch &src){
 		have_a_value = src.have_a_value;
 	}
 	return (*this);
-}
-
-void	Branch::compute_branch(void){
-	// if (!have_a_value)
-
-}
-
-void	Branch::compute_leaf(void){
-		
 }
 
 void	Branch::setBranch(char _oprtr, int _value, Branch* _parent, Branch* _branchleft, Branch* _branchright, bool _hav){
