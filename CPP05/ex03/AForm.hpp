@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:30:11 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/10 10:03:42 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:53:16 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ class AForm {
 		std::string			getTarget(void) const;
 		void				beSigned(Bureaucrat &executor);
 		void				setSigned(bool value);
-		virtual void		execute(Bureaucrat const &executor) const = 0;
+		void				execute(Bureaucrat const &executor) const;
+		virtual void		doExecute(void) const = 0;
 		class GradeTooHighException : public FException {
 			public :
 				GradeTooHighException(std::string message);

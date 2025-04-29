@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:35:31 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:00:41 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:02:20 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ShrubberyCreationForm : public AForm{
 		virtual	~ShrubberyCreationForm(void);
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
-		void		execute(Bureaucrat const &executor) const;
+		void	doExecute(void) const;
 };
 
 #endif

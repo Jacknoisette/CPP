@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:35:31 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:00:38 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:01:59 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PresidentialPardonForm : public AForm{
 		virtual	~PresidentialPardonForm(void);
 		PresidentialPardonForm(const PresidentialPardonForm &copy);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
-		void	execute(Bureaucrat const &executor) const;
+		void	doExecute(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:13:27 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:00:55 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:45:25 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class RobotomyRequestForm : public AForm{
 		virtual	~RobotomyRequestForm(void);
 		RobotomyRequestForm(const RobotomyRequestForm &copy);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
-		void	execute(Bureaucrat const &executor) const;
+		void	doExecute(void) const;
 };
 
 #endif

@@ -6,19 +6,23 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/22 14:33:49 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/23 15:21:08 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include "PmergeMe.tpp"
 
 template <typename T>
 bool	check_double_occurence(T *container)
 {
-	for (unsigned int i = 0; i < container->size(); i++)
-		for (unsigned int j = 0; j < container->size(); j++)
-			if (i != j && (*container)[i] == (*container)[j])
-				return (std::cout << "Error: Multiple occurence of: " << (*container)[i] << std::endl, false);
+	std::set<typename T::value_type> seen;
+	for (typename T::iterator it = container->begin(); it != container->end(); ++it) {
+		if (!seen.insert(*it).second) {
+			std::cout << "Error: Multiple occurence of: " << *it << std::endl;
+			return false;
+		}
+	}
 	return (true);
 }
 
@@ -48,12 +52,43 @@ bool	parsing(std::vector<int> *Vstack, std::deque<int> *Dstack, int argc, char *
 	return (true);
 }
 
-template <typename T>
-void	display_container(T container)
+bool	execStack(std::vector<int> *Vstack, std::deque<int> *Dstack, long *Vtime, long *Dtime)
 {
-	for (typename T::iterator i = container.begin(); i != container.end(); i++)
-		std::cout << *i << " ";
-	std::cout << std::endl;
+	std::vector<int> VMaxStack;
+	std::vector<int> VMinStack;
+	PmergeMe<std::vector<int> >	Vsort(*Vstack, NULL, VMaxStack, VMinStack);
+	long	Vstart = getTimeMicro();
+	Vsort.Exec();
+	*Vstack = Vsort.getOGStack();
+	if (!Vstack)
+		return (false);
+	long	Vend = getTimeMicro();
+
+	std::deque<int> DMaxStack;
+	std::deque<int> DMinStack;
+	PmergeMe<std::deque<int> >	Dsort(*Dstack, NULL, DMaxStack, DMinStack);
+	long	Dstart = getTimeMicro();
+	Dsort.Exec();
+	*Dstack = Dsort.getOGStack();
+	if (!Dstack)
+		return (false);
+	long	Dend = getTimeMicro();
+
+	*Vtime = Vend - Vstart;
+	*Dtime = Dend - Dstart;
+	return (true);
+}
+
+#include <iostream>
+#include <iomanip> // pour std::fixed et std::setprecision
+
+void display_time(long time_us) {
+	if (time_us >= 1000000)
+		std::cout << std::fixed << std::setprecision(3) << (double)time_us / 1000000 << " s" << std::endl;
+	else if (time_us >= 1000)
+		std::cout << std::fixed << std::setprecision(3) << (double)time_us / 1000 << " ms" << std::endl;
+	else
+		std::cout << time_us << " us" << std::endl;
 }
 
 int main(int argc, char **argv)
@@ -62,10 +97,28 @@ int main(int argc, char **argv)
 		return (std::cout << "Error: No Arg is provided" << std::endl, -1);
 	std::vector<int> Vstack;
 	std::deque<int> Dstack; 
+	long TEST = getTimeMicro(); 
 	if (!parsing(&Vstack, &Dstack, argc, argv))
-		return (-1);
-	std::cout << "Before Vstack: ";
-	display_container(Vstack);
-	std::cout << "Before Dstack: ";
-	display_container(Dstack);
+		return (0);
+	long TEST2 = getTimeMicro(); 
+	std::cout << "Before : ";
+	display_container(&Vstack);
+
+	long Vtime = 0;
+	long Dtime = 0;
+	execStack(&Vstack, &Dstack, &Vtime, &Dtime);
+	if (!is_sort(Vstack))
+		std::cout << "Error, Vector is not sort !" << std::endl;
+	if (!is_sort(Dstack))
+		std::cout << "Error, Deque is not sort !" << std::endl;
+	
+	std::cout << "After :  ";
+	display_container(&Vstack);
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector : " ; //<< Vtime << " us" << std::endl; 
+	display_time(Vtime);
+	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque  : "; // << Dtime << " us" << std::endl; 
+	display_time(Dtime);
+	std::cout << "Time for parsing" << std::endl;
+	display_time(TEST2 - TEST);
+	return (0);
 }

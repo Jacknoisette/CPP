@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:35:04 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 14:39:58 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:37:36 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat const &executor) const{
-	if (!this->getIsSigned() || executor.getGrade() > this->getGradeToExec())
-		throw GradeTooLowException("Presidential Pardon Form " + this->getName() + " cannot be execute by " + executor.getName() + " because he's grade");
-	std::cout << executor.getName() << " execute " << this->getName() << std::endl;
+void	PresidentialPardonForm::doExecute(void) const{
 	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

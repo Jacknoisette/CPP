@@ -1,7 +1,8 @@
-MODE="Single"
+MODE="Group"
 
-I=9
-N=2
+I=5
+N=0
+READ=0
 ARG="";
 
 animate_text() {
@@ -13,9 +14,11 @@ animate_text() {
         sleep 0.05
     done
     ARG=""
-    if [ "$I" = "9" ]; then
+    if [ "$READ" = "1" ]; then
     	echo -n " "
     	read ARG
+	else
+		echo
     fi
     if [ "$ARG" != "" ]; then
     	echo

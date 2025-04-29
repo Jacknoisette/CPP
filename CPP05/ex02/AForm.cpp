@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:29:56 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 14:41:33 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:35:34 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,12 @@ std::ostream& operator<<(std::ostream& output, AForm& obj){
 	output << ", the grade to sign is " << obj.getGradeToSign();
 	output << " and the grade to exec is " << obj.getGradeToExec() << ". ";
 	return (output);
+}
+
+void	AForm::execute(Bureaucrat const &executor) const{
+	if (!this->getIsSigned())
+		throw GradeTooLowException("Form " + this->getName() + " cannot be execute by " + executor.getName() + " because he's not signed");
+	if (executor.getGrade() > this->getGradeToExec())
+		throw GradeTooLowException("Form " + this->getName() + " cannot be execute by " + executor.getName() + " because he's grade");
+	this->doExecute();
 }

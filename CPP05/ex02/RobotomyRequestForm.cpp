@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 12:13:17 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 14:47:57 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 11:45:35 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 	return (*this);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor) const{
-	if (!this->getIsSigned() || executor.getGrade() > this->getGradeToExec())
-		throw GradeTooLowException("Robotomy Form" + this->getName() + " cannot be execute by " + executor.getName() + " because he's grade");
-	
-	std::cout << executor.getName() << " execute " << this->getName() << std::endl;
+void	RobotomyRequestForm::doExecute(void) const{
 	int	chance = (std::rand() % 2 == 1);
 	std::cout << "BZRRZZZRBRZZZZZZZZZBRRRB (Drilling Noises...)" << std::endl;
 	if (chance == 1)

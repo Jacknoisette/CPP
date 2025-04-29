@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:45:36 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/22 15:41:15 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/23 14:28:35 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 #include <iterator>
 #include <vector>
 #include <deque>
+#include <set>
 #include <limits>
 #include <sstream>
+#include <sys/time.h>
 
 # define RED "\033[1;30m"
 # define PURPLE "\033[1;31m"
@@ -60,10 +62,30 @@ class PmergeMe{
 		void	Exec(void);
 		int		Step1(void);
 		int		Step2(const int Package_nbr);
-		int		Step3(void);
+		int		Step3(const int Package_nbr);
 		int		Step4(void);
 		int		Step5(void);
 		int		Step6(void);
+
 };
+
+template <typename T>
+bool	is_sort(T& stack){
+	if (stack.size() < 2)
+		return (true);
+	for (unsigned int i = 1; i < stack.size(); i++)
+		if (stack[i] < stack[i - 1])
+			return (false);
+	return (true);
+
+}
+
+template <typename T>
+void	display_container(T* container){
+	for (typename T::iterator i = container->begin(); i != container->end(); i++)
+		std::cout << *i << " ";
+	std::cout << std::endl;
+}
+long	getTimeMicro(void);
 
 #endif
