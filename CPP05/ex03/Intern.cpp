@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:03:30 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:08:59 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/04/29 15:03:07 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,20 @@ AForm	*Intern::makeForm(std::string name, std::string target){
 	for (int i = 0; name_lower[i]; i++)
 		name_lower[i] = std::tolower(name_lower[i]);
 	std::string	name_nws;
-	for (int i = 0; name[i]; i++)
+	int i = 0;
+	while (name[i] == '\t' || name[i] == ' ')
+		i++;
+	while (name[i])
 	{
-		while (name[i] == '\t' || name[i] == ' ')
-			i++;
+		if (name[i] == '\t' || name[i] == ' ')
+			break ;
 		name_nws += name_lower[i];
+		i++;
 	}
+	while (name[i] == '\t' || name[i] == ' ')
+		i++;
+	if (name[i])
+		name_nws = name;
 	std::string type[3] = {"shrubberycreation", "robotomyrequest", "presidentialpardon"};
 	AForm		*Form[3] = {new ShrubberyCreationForm(name, target), new RobotomyRequestForm(name, target), new PresidentialPardonForm(name, target)};
 	for (int i = 0; i < 3; i++)
