@@ -1,7 +1,7 @@
 MODE="Group"
 
-I=5
-N=3
+I=3
+N=0
 READ=0
 ARG="";
 

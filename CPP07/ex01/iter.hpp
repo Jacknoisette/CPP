@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:48:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/14 13:25:14 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:42:14 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,18 @@ void	iter(T *array_adr, int length, void (*function)(T arg)){
 }
 
 template <typename T>
+void	iter(const T *array_adr, int length, void (*function)(const T arg)){
+	for (int i = 0; i < length; i++)
+		function(array_adr[i]);
+}
+
+template <typename T>
 void	printTemplate(T arg){
+	std::cout << WHITE << "Template value is : " << ORANGE << BIG << arg << RESET << std::endl;
+}
+
+template <typename T>
+void	printTemplate(const T arg){
 	std::cout << WHITE << "Template value is : " << ORANGE << BIG << arg << RESET << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/14 14:09:41 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:41:57 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,23 @@ int	test3(void)
 					"1 more to finish",
 					"I hope you enjoyed it because I didn't"};
 	::iter(array, 15, ::printTemplate);
+	const std::string array_const[15] = {
+					"This is the first line",
+					"This test will be long to make",
+					"I am already bored at the 3rd line", 
+					"A wise man said once :",
+					"\"A wall that is darker than a white wall",
+					"Is not a white wall or you have to clean\"",
+					"This man was wise, and for the record",
+					"I don't know if a man once said that",
+					"And in fact I don't care",
+					"The man did what he did",
+					"It's not my problem",
+					"3 more lines to write",
+					"Why man ! Why !",
+					"1 more to finish",
+					"I hope you enjoyed it because I didn't"};
+	::iter(array_const, 15, ::printTemplate);
 	return (0);
 }
 
