@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:03:52 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/15 15:45:45 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/16 13:29:33 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator
 		throw std::runtime_error("Span can't store all those informations");
 }
 
-int		Span::shortestSpan(void){
+unsigned int		Span::shortestSpan(void){
 	std::vector<int> temp = span;
 	std::sort(temp.begin(), temp.end());
 	if (temp.size() < 2)
@@ -63,7 +63,7 @@ int		Span::shortestSpan(void){
 	return (shortest);
 }
 
-int		Span::longestSpan(void){
+unsigned int		Span::longestSpan(void){
 	std::vector<int> temp = span;
 	std::sort(temp.begin(), temp.end());
 	if (temp.size() < 2)
