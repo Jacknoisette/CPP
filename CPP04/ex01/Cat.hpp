@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:48:47 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 14:23:32 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 15:41:25 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 #endif
 #define RESET "\033[0m"
 
-class Cat : virtual public Animal{
-	protected :
-		std::string	type;
+class Cat : public Animal{
 	private :
 		Brain*	brain;
 	public :
@@ -32,7 +30,7 @@ class Cat : virtual public Animal{
 		~Cat(void);
 		Cat(const Cat &copy);
 		Cat &operator=(const Cat &src);
-		std::string getType(void) const;
+		Brain	*getBrain(void) const;
 		void	makeSound(void) const;
 };
 

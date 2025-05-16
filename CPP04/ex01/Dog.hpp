@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:10:40 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 12:50:10 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:41:20 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@
 #endif
 #define RESET "\033[0m"
 
-class Dog : virtual public Animal{
-	protected :
-		std::string	type;
+class Dog : public Animal{
 	private :
 		Brain*	brain;
 	public :
@@ -32,7 +30,7 @@ class Dog : virtual public Animal{
 		~Dog(void);
 		Dog(const Dog &copy);
 		Dog &operator=(const Dog &src);
-        std::string getType(void) const;
+		Brain	*getBrain(void) const;
 		void	makeSound(void) const;
 };
 

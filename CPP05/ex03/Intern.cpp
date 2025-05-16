@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:03:30 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/29 15:03:07 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:21:32 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ AForm	*Intern::makeForm(std::string name, std::string target){
 	return (NULL);
 }
 
-std::ostream& operator<<(std::ostream& output, Intern& obj){
+std::ostream& operator<<(std::ostream& output, const Intern& obj){
 	(void)obj;
 	output << "Intern is working. ";
 	return (output);

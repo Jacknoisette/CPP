@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:11:52 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 14:22:49 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 15:41:21 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void): Animal("Dog"), type("Dog"), brain(new Brain){
+Dog::Dog(void): Animal("Dog"), brain(new Brain){
 	std::cout << COLOR << "A " << type << " have spawn !" << RESET << std::endl;	
 }
 		
@@ -29,13 +29,18 @@ Dog::Dog(const Dog &copy): Animal("Dog"){
 
 Dog	&Dog::operator=(const Dog &src){
 	std::cout << COLOR << "Operator Dog " << this->type << " = " << src.type << RESET << std::endl;
-	*brain = *src.brain;
-	this->type = src.type;
+	if (this != &src)
+	{
+		if (brain)
+			delete brain;
+		brain = new Brain(*src.brain);
+		this->type = src.type;
+	}
 	return *this;
 }
 
-std::string Dog::getType(void) const{
-	return type;
+Brain	*Dog::getBrain(void) const{
+	return brain;
 }
 
 void	Dog::makeSound(void) const{

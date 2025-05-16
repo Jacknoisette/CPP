@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:11:15 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 12:04:32 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:20:33 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	Bureaucrat::decrementGrade(int decrement){
 		throw GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& output, Bureaucrat& obj){
+std::ostream& operator<<(std::ostream& output, const Bureaucrat& obj){
 	output << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ". ";
 	return (output);
 }

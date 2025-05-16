@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:44:58 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 14:32:20 by codespace        ###   ########.fr       */
+/*   Created: 2025/05/07 15:52:21 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/05/07 15:52:22 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 #include <iostream>
 
 #define COLORA "\033[1;32m"
 #define RESET "\033[0m"
 
-class Animal{
+class AAnimal{
 	protected :
 		std::string	type;
 	public :
-		Animal(void);	
-		Animal(std::string _type);
-		virtual ~Animal(void);
-		Animal(const Animal &copy);
-		Animal &operator=(const Animal &src);
+		AAnimal(void);	
+		AAnimal(std::string _type);
+		virtual ~AAnimal(void);
+		AAnimal(const AAnimal &copy);
+		AAnimal &operator=(const AAnimal &src);
 		virtual std::string getType(void) const;
 		virtual void	makeSound(void) const = 0;
 };

@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:20:09 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 16:27:09 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:08:07 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,8 @@ Character::Character(const Character &copy){
 Character &Character::operator=(const Character &src){
 	if (this != &src){
 		for (int i = 0; i < 4; i++){
-			if (inventory[i]){
+			if (inventory[i])
 				delete inventory[i];
-			}
-		}
-		for (int i = 0; i < 4; i++){
 			if (src.inventory[i])
 				this->inventory[i] = src.inventory[i]->clone();
 			else

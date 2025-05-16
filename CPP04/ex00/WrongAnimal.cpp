@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:49:24 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 10:58:47 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 11:19:23 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ std::string WrongAnimal::getType(void) const{
 }
 
 void	WrongAnimal::makeSound(void) const{
-	std::cout << "Grrrrr !" << std::endl;
+	std::cout << "Wrrrrr !" << std::endl;
 }

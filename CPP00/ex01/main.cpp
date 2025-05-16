@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:34:45 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/20 12:52:22 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/12 15:23:27 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main(void)
 			std::cout << "\033[F\033[J";
 			displayEanc = false;
 		}
-		if (std::cin.eof() || std ::cin.fail()){
+		if (std::cin.eof() || std::cin.fail()){
 			std::cout << "\nEXIT" << std::endl;
 			break ;
 		}

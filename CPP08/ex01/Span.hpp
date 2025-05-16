@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:03:27 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/15 15:08:39 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:44:06 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
+# include <limits>
 
 # define RED "\033[1;30m"
 # define PURPLE "\033[1;31m"
@@ -29,8 +30,6 @@
 # define GREY "\033[1;37m"
 # define RESET "\033[0m"
 # define BIG "\033[1m"
-
-#define INT32_MAX (2147483647)
 
 class Span{
 	private :

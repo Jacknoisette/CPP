@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:03:52 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/15 14:29:45 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:45:45 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int		Span::shortestSpan(void){
 	std::sort(temp.begin(), temp.end());
 	if (temp.size() < 2)
 		throw std::runtime_error("Span size is not big enough");
-	int shortest = INT32_MAX;
+	unsigned int shortest = std::numeric_limits<unsigned int>::max();
 	for (unsigned int i = 1; i < temp.size(); i++){
-		int diff = abs(temp[i] - temp[i - 1]);
+		unsigned int diff = abs(temp[i] - temp[i - 1]);
 		if (diff < shortest)
 			shortest = diff;
 	}

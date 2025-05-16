@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:50:16 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 10:50:34 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 12:07:00 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal{
 	public :
 		WrongAnimal(void);	
 		WrongAnimal(std::string _type);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 		WrongAnimal(const WrongAnimal &copy);
 		WrongAnimal &operator=(const WrongAnimal &src);
 		std::string getType(void) const;

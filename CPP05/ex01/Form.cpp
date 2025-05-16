@@ -98,7 +98,7 @@ void	Form::beSigned(Bureaucrat &executor){
 		std::cout << executor.getName() << " couldn't sign " << this->getName() << " because it was already sign !" <<  std::endl;
 }
 
-std::ostream& operator<<(std::ostream& output, Form& obj){
+std::ostream& operator<<(std::ostream& output, const Form& obj){
 	output << obj.getName() << ",";
 	if (obj.getIsSigned())
 		output << " is signed ";

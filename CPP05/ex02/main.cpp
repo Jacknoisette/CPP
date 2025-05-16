@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/09 14:47:32 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:07:54 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,43 +146,43 @@ int	test3(void)
 		ShrubberyCreationForm	Thing2("the Other Form not the OG one", "Rock");
 		ShrubberyCreationForm	Thing3(Thing1);
 
-		std::cout << WHITE << Thing1 << RESET << std::endl;
-		std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
-		std::cout << GREY << Thing3 << RESET << std::endl;
+		std::cout << Thing1 << std::endl;
+		std::cout << Thing2 << std::endl;
+		std::cout << Thing3 <<  std::endl;
 		Thing2.beSigned(King);
 		Thing3 = Thing2;
-		std::cout << WHITE << Thing1 << RESET << std::endl;
-		std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
-		std::cout << GREY << Thing3 << RESET << std::endl;
+		std::cout << Thing1 << std::endl;
+		std::cout << Thing2 << std::endl;
+		std::cout << Thing3 << std::endl;
 	}
 	{
 		RobotomyRequestForm	Thing1("the OG Form", "Robot1");
 		RobotomyRequestForm	Thing2("the Other Form not the OG one", "Robot2");
 		RobotomyRequestForm	Thing3(Thing1);
 
-		std::cout << WHITE << Thing1 << RESET << std::endl;
-		std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
-		std::cout << GREY << Thing3 << RESET << std::endl;
+		std::cout << Thing1 << std::endl;
+		std::cout << Thing2 << std::endl;
+		std::cout << Thing3 << std::endl;
 		Thing2.beSigned(King);
 		Thing3 = Thing2;
-		std::cout << WHITE << Thing1 << RESET << std::endl;
-		std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
-		std::cout << GREY << Thing3 << RESET << std::endl;
+		std::cout << Thing1 << std::endl;
+		std::cout << Thing2 << std::endl;
+		std::cout << Thing3 << std::endl;
 	}
 	{
 		PresidentialPardonForm		Thing1("the OG Form", "Bob");
 		PresidentialPardonForm		Thing2("the Other Form not the OG one", "John");
 		PresidentialPardonForm 		Thing3(Thing1);
 
-		std::cout << WHITE << Thing1 << RESET << std::endl;
-		std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
-		std::cout << GREY << Thing3 << RESET << std::endl;
+		std::cout << Thing1 << std::endl;
+		std::cout << Thing2 << std::endl;
+		std::cout << Thing3 << std::endl;
 		Thing2.beSigned(King);
 		Thing3 = Thing2;
 		Thing3.execute(King);
-		std::cout << WHITE << Thing1 << RESET << std::endl;
-		std::cout << LIGHT_YELLOW << Thing2 << RESET << std::endl;
-		std::cout << GREY << Thing3 << RESET << std::endl;
+		std::cout << Thing1 << std::endl;
+		std::cout << Thing2 << std::endl;
+		std::cout << Thing3 << std::endl;
 	}
 	return (0);
 }

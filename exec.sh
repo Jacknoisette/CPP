@@ -1,22 +1,80 @@
-MODE="Group"
+error_message() {
+	echo " Welcome to exec.sh"
+	echo " This shell file compile CPP"
+	echo " Here is the list of Mode you can use :"
+	echo "	- No arg"
+	echo "		- All CPP are executed"
+	echo "	- One arg"
+	echo "		- Execute the CPP of the first parameter"
+	echo "	- Two arg"
+	echo "		- Execute the exercice of the second parameter"
+	echo "		  in the CPP of the first parameter"
+	echo ""
+	echo " Entering more than two arg or number below 0 and above 9"
+	echo "  will not be accepted"
+	echo " Thanks you"
+}
 
-I=3
-N=0
-READ=0
-ARG="";
+test_variable() {
+	arg=$1
+	test=0
+	for i in $(seq 0 9); do
+		if [ "$arg" = "$i" ]; then
+			test=1
+		fi
+	done
+	if [ "$test" = 0 ]; then
+		error_message
+		return 0
+	fi
+	return 1
+}
+
+MODE=""
+I=""
+N=""
+ARG=""
+
+if [ "$#" = 0 ]; then
+	MODE="All"
+	I=0
+	N=0
+elif [ "$#" = 1 ]; then
+	MODE="Group"
+	I=$1
+	if test_variable "$I" ; then
+		return
+	fi
+	N=0
+elif [ "$#" = 2 ]; then
+	MODE="Single"
+	I=$1
+	if test_variable "$I" ; then
+		return
+	fi
+	N=$2
+	if test_variable "$N" ; then
+		return
+	fi
+else
+	error_message
+	return
+fi
+
 
 animate_text() {
 	text=$1
-    length=$(expr length "$text")  # Obtenez la longueur de la chaîne
+    length=$(expr length "$text")
     for i in $(seq 0 $((length - 1))); do
-        char=$(echo "$text" | cut -c $((i + 1)))  # Extraire le i-ème caractère
+        char=$(echo "$text" | cut -c $((i + 1)))
         echo -n "$char"
         sleep 0.05
     done
     ARG=""
-    if [ "$READ" = "1" ]; then
-    	echo -n " "
+	if grep -q "argv" main.cpp ; then
+		echo -n " \033[31m"
     	read ARG
+		echo -n "\033[0m"
 	else
 		echo
     fi
@@ -26,7 +84,7 @@ animate_text() {
 }
 
 execute() {
-	echo "\033[32m""_________ CPP0$I EX0$N __________ ""\033[0m"
+	echo "\033[32;1m""_________ CPP0$I EX0$N __________ ""\033[0m"
 	cd CPP0$I/ex0$N
 	make -s re
 	make -s clean

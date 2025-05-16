@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/05/05 16:44:37 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:48:17 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	test3(void)
 					"1 more to finish",
 					"I hope you enjoyed it because I didn't"};
 	::iter(array, 15, ::printTemplate);
+	std::cout << WHITE << "\nAnd now in CONST !!!\n" << std::endl;
 	const std::string array_const[15] = {
 					"This is the first line",
 					"This test will be long to make",

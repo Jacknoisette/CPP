@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:21:10 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 16:01:02 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:28:09 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ class Form {
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, Form& obj);
+std::ostream& operator<<(std::ostream& os, const Form& obj);
 
 #endif

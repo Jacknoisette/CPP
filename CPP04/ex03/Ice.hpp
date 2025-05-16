@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:04:25 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 12:45:37 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:35:07 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Ice : public AMateria{
 	public :
 		Ice(void);
 		virtual ~Ice();
+		Ice(const Ice &copy);
 		Ice &operator=(const Ice &src);
 		std::string const & getType() const;
 		

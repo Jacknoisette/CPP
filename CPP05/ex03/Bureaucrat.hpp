@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:12:36 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 13:43:48 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:28:37 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ class Bureaucrat {
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif

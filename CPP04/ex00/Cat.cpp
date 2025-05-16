@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:12 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 11:08:09 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 11:47:03 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void): Animal("Cat"), type("Cat"){
+Cat::Cat(void): Animal("Cat"){
 	std::cout << "A " << type << " have spawn !" << std::endl;	
 }
 		
@@ -29,10 +29,6 @@ Cat	&Cat::operator=(const Cat &src){
 	std::cout << "Operator Cat " << this->type << " = " << src.type << std::endl;
 	this->type = src.type;
 	return *this;
-}
-
-std::string Cat::getType(void) const{
-	return type;
 }
 
 void	Cat::makeSound(void) const{

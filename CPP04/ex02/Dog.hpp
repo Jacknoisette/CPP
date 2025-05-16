@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:10:40 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 12:50:05 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:51:54 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DOG_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 #ifndef COLOR
@@ -22,9 +22,7 @@
 #endif
 #define RESET "\033[0m"
 
-class Dog : virtual public Animal{
-	protected :
-		std::string	type;
+class Dog : public AAnimal{
 	private :
 		Brain*	brain;
 	public :
@@ -32,7 +30,7 @@ class Dog : virtual public Animal{
 		~Dog(void);
 		Dog(const Dog &copy);
 		Dog &operator=(const Dog &src);
-        std::string getType(void) const;
+		Brain	*getBrain(void) const;
 		void	makeSound(void) const;
 };
 

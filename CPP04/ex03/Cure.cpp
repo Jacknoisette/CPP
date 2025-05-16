@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:03:50 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 15:20:33 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:34:50 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 Cure::Cure(void) : AMateria("cure"){}
 
 Cure::~Cure(){}
+
+Cure::Cure(const Cure &copy){
+	*this = copy;
+}
 
 Cure	&Cure::operator=(const Cure &src){
     this->type = src.type;

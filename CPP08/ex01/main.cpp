@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/16 11:11:30 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:46:31 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	test3(void)
 	std::vector<int> test;
 	for (int i = 0; i < 9999; i++){
 		custom_seed();
-		int	rand_nbr = rand() % INT32_MAX;
+		int	rand_nbr = rand() % std::numeric_limits<int>::max();
 		test.push_back(rand_nbr);
 	}
 	// std::cout << WHITE << BIG << "Span : " << RESET << ORANGE;
@@ -102,7 +102,7 @@ int	test3(void)
 	// std::cout << std::endl;
 	try{
 		custom_seed();
-		int	rand_nbr = rand() % INT32_MAX;
+		int	rand_nbr = rand() % std::numeric_limits<int>::max();
 		sp.addNumber(rand_nbr);
 		sp.addRange(test.begin(), test.end());
 	} catch (std::runtime_error & e) {

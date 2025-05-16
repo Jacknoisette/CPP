@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:04:25 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 13:08:56 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:34:00 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class AMateria{
 	public:
 		AMateria(void);
 		AMateria(std::string const & _type);
+		AMateria(const AMateria &copy);
 		virtual ~AMateria();
 		AMateria &operator=(const AMateria &src);
 		std::string const & getType() const;

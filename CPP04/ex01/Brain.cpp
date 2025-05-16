@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 13:38:56 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 14:21:14 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 15:22:50 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ std::string Brain::getIdea(int index) const{
 	if (index >= 0 && index < 100)
 		return ideas[index];
 	return "";
+}
+
+void Brain::setIdea(int index, std::string newIdea){
+	if (index >= 0 && index < 100)
+		ideas[index] = newIdea;
+	return ;
 }
 
 std::string	*Brain::getMemory(void) const{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:12 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 13:31:07 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/07 11:53:34 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ Animal &Animal::operator=(const Animal &src){
 	this->type = src.type;
 	return *this;
 }
-
 
 std::string Animal::getType(void) const{
 	return type;

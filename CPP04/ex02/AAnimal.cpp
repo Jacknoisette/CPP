@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:44:12 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/18 14:37:29 by codespace        ###   ########.fr       */
+/*   Created: 2025/05/07 15:52:25 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/05/07 15:52:26 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal(void): type("Unknown type"){
+AAnimal::AAnimal(void): type("Unknown type"){
 	std::cout << COLORA << "An Animal " << type << " have spawn !" << RESET << std::endl;	
 }
 
-Animal::Animal(std::string _type): type(_type){
+AAnimal::AAnimal(std::string _type): type(_type){
 	std::cout << COLORA << "An Animal " << type << " have spawn !" << RESET << std::endl;	
 }
 		
-Animal::~Animal(void){
+AAnimal::~AAnimal(void){
 	std::cout << COLORA << "An Animal " << type << " have despawn !" << RESET << std::endl;
 }
 
-Animal::Animal(const Animal &copy){
+AAnimal::AAnimal(const AAnimal &copy){
 	*this = copy;
 	std::cout << COLORA << "Construction of Animal copy " << this->type << RESET << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &src){
+AAnimal &AAnimal::operator=(const AAnimal &src){
 	std::cout << COLORA << "Operator Animal " << this->type << " = " << RESET << src.type << std::endl;
 	this->type = src.type;
 	return *this;
 }
 
-std::string Animal::getType(void) const{
+std::string AAnimal::getType(void) const{
 	return type;
 }
 
-// void	Animal::makeSound(void) const{
+// void	AAnimal::makeSound(void) const{
 // 	std::cout << COLORA << "Grrrrr !" << std::endl;
 // }

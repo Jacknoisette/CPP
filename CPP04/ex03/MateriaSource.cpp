@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:07:27 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 15:26:54 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:08:16 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ MateriaSource::MateriaSource(const MateriaSource &copy){
 MateriaSource &MateriaSource::operator=(const MateriaSource &src){
 	if (this != &src){
 		for (int i = 0; i < 4; i++)
-			delete knowledge[i];
-		for (int i = 0; i < 4; i++)
+		{
+			if (knowledge[i])
+				delete knowledge[i];
 			if (src.knowledge[i])
 				this->knowledge[i] = src.knowledge[i]->clone();
 			else
 				knowledge[i] = NULL;
+		}
 	}
 	return *this;
 }

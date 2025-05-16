@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:30:11 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/29 11:53:16 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:28:32 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ class AForm {
 		};
 };
 
-std::ostream& operator<<(std::ostream& os, AForm& obj);
+std::ostream& operator<<(std::ostream& os, const AForm& obj);
 
 #endif

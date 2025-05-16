@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 11:29:56 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/29 11:53:27 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:21:08 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	AForm::setSigned(bool value){
 	this->is_signed = value;
 }
 
-std::ostream& operator<<(std::ostream& output, AForm& obj){
+std::ostream& operator<<(std::ostream& output, const AForm& obj){
 	output << obj.getName() << ",";
 	if (obj.getIsSigned())
 		output << " is signed";

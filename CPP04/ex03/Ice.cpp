@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 15:35:58 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/19 12:57:17 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:35:03 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 Ice::Ice(void) : AMateria("ice"){}
 
 Ice::~Ice(){}
+
+Ice::Ice(const Ice &copy){
+	*this = copy;
+}
 
 Ice	&Ice::operator=(const Ice &src){
     this->type = src.type;

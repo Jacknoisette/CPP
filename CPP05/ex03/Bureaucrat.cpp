@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:11:15 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/09 13:43:28 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/15 10:38:22 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,15 @@ void	Bureaucrat::signForm(AForm &form){
 }
 
 void	Bureaucrat::executeForm(AForm const &form){
-	form.execute(*this);
+	try {
+		form.execute(*this);
+		std::cout << getName() << " execute " << form.getName() << std::endl;
+	} catch (std::runtime_error & e){
+		throw (e);
+	}	
 }
 
-std::ostream& operator<<(std::ostream& output, Bureaucrat& obj){
+std::ostream& operator<<(std::ostream& output, const Bureaucrat& obj){
 	output << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ". ";
 	return (output);
 }

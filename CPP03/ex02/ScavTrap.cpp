@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 13:45:34 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/03/19 11:24:05 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/06 10:21:13 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,6 @@ void ScavTrap::attack(const std::string& target){
 void ScavTrap::guardGate(void){
 	if (hitPoint <= 0)
 		std::cout << "ScavTrap " << name << " is dead he can't change guard position" << std::endl;
-	else if (guardmode == false)
-	{
-		guardmode = true;
-		std::cout << "ScavTrap " << name << " left patrol and is now guarding the gate" << std::endl;
-	}
-	else if (guardmode == true)
-	{
-		guardmode = false;
-		std::cout << "ScavTrap " << name << " left the gate and is now doing a patrol" << std::endl;
-	}
+	guardmode = true;
+	std::cout << "ScavTrap " << name << " is now guarding the gate" << std::endl;
 }

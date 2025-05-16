@@ -38,6 +38,6 @@ class Intern {
 		AForm	*makeForm(std::string name, std::string target);
 };
 
-std::ostream& operator<<(std::ostream& os, Intern& obj);
+std::ostream& operator<<(std::ostream& os, const Intern& obj);
 
 #endif
