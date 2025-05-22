@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 09:14:44 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/11 11:17:00 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/22 12:25:54 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void custom_seed() {
     counter++;
 }
 
-Base * Base::generate(int checker){
+Base *generate(int checker){
 	(void)checker;
 	custom_seed();
 	int	rand_nbr = rand() % 3;
@@ -32,33 +32,24 @@ Base * Base::generate(int checker){
 	{
 		case 0 :
 		{
-			std::cout << "A : ";
-			break ;
+			std::cout << "Generate A : get ";
+			return new A();
 		}
 ;		case 1 :
 		{
-			std::cout << "B : ";
-			break ;
+			std::cout << "Generate B : get ";
+			return new B();
 		}
 		case 2 :
 		{
-			std::cout << "C : ";
-			break ;
-		}
-	}
-	switch (rand_nbr)
-	{
-		case 0 :
-			return new A();
-		case 1 :
-			return new B();
-		case 2 :
+			std::cout << "Generate C : get ";
 			return new C();
+		}
 	}
 	return NULL;
 }
 
-Base * Base::generate(void){
+Base *generate(void){
 	custom_seed();
 	int	rand_nbr = rand() % 3;
 	switch (rand_nbr)
@@ -73,7 +64,7 @@ Base * Base::generate(void){
 	return NULL;
 }
 
-void Base::identify(Base* p){
+void identify(Base* p){
 	if (dynamic_cast<A*>(p)) {
 		std::cout << "A" << std::endl;
 	} else if (dynamic_cast<B*>(p)) {
@@ -85,7 +76,7 @@ void Base::identify(Base* p){
 	}
 }
 
-void Base::identify(Base& p){
+void identify(Base& p){
 	try
 	{
 		(void)dynamic_cast<A&>(p);
@@ -108,7 +99,4 @@ void Base::identify(Base& p){
 			}
 		}
 	}
-	
-	
-	
 }

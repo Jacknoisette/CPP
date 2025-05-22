@@ -1,3 +1,7 @@
+if !( pgrep -x "code" > /dev/null ); then
+    code .
+fi
+
 error_message() {
 	echo " Welcome to exec.sh"
 	echo " This shell file compile CPP"
@@ -78,15 +82,13 @@ animate_text() {
 	else
 		echo
     fi
-    if [ "$ARG" != "" ]; then
-    	echo
-    fi
+	echo
 }
 
 execute() {
 	echo "\033[32;1m""_________ CPP0$I EX0$N __________ ""\033[0m"
 	cd CPP0$I/ex0$N
-	make -s re
+	make -s -j re
 	make -s clean
 	exec=$(find . -type f ! -name "*.replace" ! -name "*.log" ! -name "*.cpp" ! -name "*.hpp" ! -name "Makefile" ! -name "*_shrubbery" ! -name "*.tpp" ! -name "*.csv" ! -name "*.txt")
 	animate_text $exec

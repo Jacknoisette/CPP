@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 09:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/11 11:16:41 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/22 12:28:24 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,14 @@
 # define GREY "\033[1;37m"
 # define RESET "\033[0m"
 
-class A;
-class B;
-class C;
-
 class Base{
 	public :
 		virtual ~Base(void);
-		Base * generate(void);
-		Base * generate(int checker);
-		void identify(Base* p);
-		void identify(Base& p);
 };
+
+Base * generate(void);
+Base * generate(int checker); //to display the value created
+void identify(Base* p);
+void identify(Base& p);
 
 #endif

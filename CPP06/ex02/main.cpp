@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/11 11:18:24 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/22 12:27:33 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	test1(void)
 {
 	std::cout <<"Use of void identify(Base* p)" << std::endl;
 	for (int i = 0; i < 10; i++)
-	{
-		Base base;
-		Base *random_class = base.generate();
-		base.identify(random_class);
+	{	
+		Base *random_class = generate();
+		identify(random_class);
 		delete(random_class);
 	}
 	return (0);
@@ -33,9 +32,8 @@ int	test2(void)
 	std::cout <<"Use of void identify(Base& p)" << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		Base base;
-		Base *random_class = base.generate();
-		base.identify(*random_class);
+		Base *random_class = generate();
+		identify(*random_class);
 		delete(random_class);
 	}
 	return (0);

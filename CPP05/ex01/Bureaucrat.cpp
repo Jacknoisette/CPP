@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:11:15 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/15 10:23:22 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/21 10:14:28 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ Bureaucrat::Bureaucrat(void): name("Random Guy"), grade(150){
 }
 
 Bureaucrat::Bureaucrat(std::string _name, int _grade): name(_name), grade(_grade){
-	if (grade < 1)
+	if (grade < 1){
+		grade = 1;
 		throw GradeTooHighException();
-	if (grade > 150)
+	}
+	if (grade > 150){
+		grade = 150;
 		throw GradeTooLowException();
+	}
 }
 
 Bureaucrat::~Bureaucrat(void){	
@@ -74,19 +78,19 @@ int	Bureaucrat::getGrade(void) const{
 }
 
 void	Bureaucrat::incrementGrade(int increment){
-	grade -= increment;
-	if (grade < 1)
+	if (grade - increment < 1)
 		throw GradeTooHighException();
-	if (grade > 150)
+	if (grade - increment > 150)
 		throw GradeTooLowException();
+	grade -= increment;
 }
 
 void	Bureaucrat::decrementGrade(int decrement){
-	grade += decrement;
-	if (grade < 1)
+	if (grade + decrement < 1)
 		throw GradeTooHighException();
-	if (grade > 150)
+	if (grade + decrement > 150)
 		throw GradeTooLowException();
+	grade += decrement;
 }
 
 void	Bureaucrat::signForm(Form &form){

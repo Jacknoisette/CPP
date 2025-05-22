@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:51:31 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/10 15:36:24 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:57:46 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ std::string removeWhitespace(const std::string &input){
 	std::string	input_nws;
 	int		size = static_cast<int>(input.size());
 	int		i = 0;
+	if (size == 1 && (input[i] == ' '))
+		return (input);
+	if (size > 1 && (input[i] == '\'' || input[i] == '\"'))
+		throw std::runtime_error("Incorrect not a char, int, float or double");
 	while (i < size && std::isspace(input[i]))
 		i++;
 	while (i < size && !std::isspace(input[i]))
@@ -33,11 +37,14 @@ std::string removeWhitespace(const std::string &input){
 int	 checkOGType(const std::string &input){
 	bool	contains_e = false;
 	bool	contains_float = false;
+	int		e_after_decimal = -1;
 	int		size = static_cast<int>(input.size());
 	if (size == 0)
 		return (DEFAULT);
-	if (size == 1 && std::isalpha(input[0]))
+	if (size == 1 && std::isprint(input[0]))
 		return (CHAR);
+	if (size > 1 && !std::isdigit(input[0]))
+		return (DEFAULT);
 	std::string	special_case[] = {"nanf", "-inff", "+inff", "nan", "-inf", "+inf"};
 	for (int i = 0; i < 6; i++)
 	{
@@ -59,6 +66,12 @@ int	 checkOGType(const std::string &input){
 		{
 			if (i < size - 1 && !contains_e)
 			{
+				if (input[i + 1] == '.') 
+					return (DEFAULT);
+				if (contains_float == true)
+					e_after_decimal = 1;
+				else
+					e_after_decimal = 0;
 				contains_e = true;
 				continue ;
 			}
@@ -80,6 +93,8 @@ int	 checkOGType(const std::string &input){
 				return (DEFAULT);
 		}
 	}
+	if (e_after_decimal == 0 && contains_float)
+		return (DEFAULT);
 	if (input[size - 1] == 'f')
 		return (FLOAT);
 	else if (contains_e || contains_float)
@@ -87,25 +102,6 @@ int	 checkOGType(const std::string &input){
 	else
 		return (INT);
 	return (DEFAULT);
-}
-
-void	*checkLimitTypeSpe(const std::string &input, int type){
-	char	*end;
-	errno = 0;
-	switch (type)
-	{
-		case 2:
-		{
-			double	*floating = new double(std::strtod(input.c_str(), &end));
-			return (floating);
-		}
-		case 3:
-		{
-			long double	*double_floating = new long double(std::strtold(input.c_str(), &end));
-			return (double_floating);
-		}
-	}
-	return (NULL);
 }
 
 void	*checkLimitType(const std::string &input, int type){
@@ -120,50 +116,44 @@ void	*checkLimitType(const std::string &input, int type){
 		}
 		case 1:
 		{
-			long	*integer = new long(std::strtol(input.c_str(), &end, 10));
-			if (errno == ERANGE || *integer < std::numeric_limits<int>::min() || (integer)[0] > std::numeric_limits<int>::max())
-			{
-				delete integer;
+			long	integer_tmp = std::strtol(input.c_str(), &end, 10);
+			if (errno == ERANGE || integer_tmp < std::numeric_limits<int>::min() || integer_tmp > std::numeric_limits<int>::max())
 				throw std::runtime_error("Incorrect int");
-			}
+			int	*integer = new int(static_cast<int>(integer_tmp));
 			return (integer);
 		}
 		case 2:
 		{
-			double *floating;
+			double floating_tmp;
 			if (input == "nanf"){
-				floating = new double(NAN);
+				floating_tmp = NAN;
 			} else if (input == "+inff"){
-				floating = new double(INFINITY); 
+				floating_tmp = INFINITY; 
 			} else if (input == "-inff"){
-				floating = new double(-INFINITY);
+				floating_tmp = -INFINITY;
 			} else {
-				floating = new double(std::strtod(input.c_str(), &end));
-				if (errno == ERANGE || *floating < -std::numeric_limits<float>::max() || (floating)[0] > std::numeric_limits<float>::max())
-				{
-					delete floating;
+				floating_tmp = std::strtod(input.c_str(), &end);
+				if (errno == ERANGE || floating_tmp < -std::numeric_limits<float>::max() || floating_tmp > std::numeric_limits<float>::max())
 					throw std::runtime_error("Incorrect float");
-				}
 			}
+			float *floating = new float(static_cast<float>(floating_tmp));
 			return (floating);
 		}
 		case 3:
 		{
-			long double	*double_floating;
+			long double	double_floating_tmp;
 			if (input == "nan"){
-				double_floating = new long double(NAN);
+				double_floating_tmp = NAN;
 			} else if (input == "+inf"){
-				double_floating = new long double(INFINITY); 
+				double_floating_tmp = INFINITY; 
 			} else if (input == "-inf"){
-				double_floating = new long double(-INFINITY);
+				double_floating_tmp = -INFINITY;
 			} else {
-				double_floating = new long double(std::strtold(input.c_str(), &end));
-				if (errno == ERANGE || *double_floating < -std::numeric_limits<double>::max() || (double_floating)[0] > std::numeric_limits<double>::max())
-				{
-					delete double_floating;
+				double_floating_tmp = std::strtold(input.c_str(), &end);
+				if (errno == ERANGE || double_floating_tmp < -std::numeric_limits<double>::max() || double_floating_tmp > std::numeric_limits<double>::max())
 					throw std::runtime_error("Incorrect double");
-				}
 			}
+			double *double_floating= new double(static_cast<double>(double_floating_tmp));
 			return (double_floating);
 		}
 		default :

@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:58:59 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/10 15:43:52 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:55:28 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	display(char character, int integer, float floating, double double_floating
 
 	std::cout << "char: " << char_string << std::endl;
 
+	oss.clear();
 	oss.str("");
 	if (info[INT] == "OK")
 		oss << integer;
@@ -36,6 +37,7 @@ void	display(char character, int integer, float floating, double double_floating
 
 	std::cout << "int: " << int_string << std::endl;
 
+	oss.clear();
 	oss.str("");
 	if (floating > std::numeric_limits<int>::max())
 		oss << std::scientific << std::setprecision(decimal) << floating;
@@ -45,6 +47,7 @@ void	display(char character, int integer, float floating, double double_floating
 
 	std::cout << "float: " << float_string << "f" << std::endl;
 
+	oss.clear();
 	oss.str("");
 	if (double_floating > std::numeric_limits<int>::max())
 		oss << std::scientific << std::setprecision(decimal) << double_floating;
@@ -52,35 +55,32 @@ void	display(char character, int integer, float floating, double double_floating
 		oss << std::fixed << std::setprecision(decimal) << double_floating;
 	std::string	double_string = oss.str();
 	std::cout << "double: " << double_string << std::endl;
+	oss.clear();
 }
 
 void	display_convert(char character, int decimal){
 	std::string info[4] = {"OK", "OK", "OK", "OK"};
-	(void)decimal;
-	int		integer = character;
-	float	floating = character;
-	double	double_floating = character;
+	int		integer = static_cast<int>(character);
+	float	floating = static_cast<float>(character);
+	double	double_floating = static_cast<double>(character);
 	display(character, integer, floating, double_floating, decimal, info);
 }
 
 void	display_convert(int integer, int decimal){
 	std::string info[4] = {"OK", "OK", "OK", "OK"};
-	(void)decimal;
-	std::ostringstream oss;
 	if (integer < 0 || integer > 127)
 		info[CHAR] = "KO";
-	char	character = integer;
+	char	character = static_cast<char>(integer);
 	if (!std::isprint(character) && info[CHAR] == "OK")
 		info[CHAR] = "N/A";
-	float	floating = integer;
-	double	double_floating = integer;
+	float	floating = static_cast<float>(integer);
+	double	double_floating = static_cast<double>(integer);
 
 	display(character, integer, floating, double_floating, decimal, info);
 }
-// std::numeric_limits<int>::min()
+
 void	display_convert(float floating, int decimal, bool nan){
 	std::string info[2] = {"OK", "OK"};
-	std::ostringstream oss;
 	if (floating < 0 || floating > 127 || nan)
 		info[CHAR] = "KO";
 	char	character = static_cast<char>(floating);
@@ -88,15 +88,14 @@ void	display_convert(float floating, int decimal, bool nan){
 		info[CHAR] = "N/A";
 	if (floating < std::numeric_limits<int>::min() || floating > std::numeric_limits<int>::max() || nan)
 		info[INT] = "KO";
-	int		integer = floating;
-	double	double_floating = floating;
+	int		integer = static_cast<int>(floating);
+	double	double_floating = static_cast<double>(floating);
 
 	display(character, integer, floating, double_floating, decimal, info);
 }
 
 void	display_convert(double double_floating, int decimal, bool nan){
 	std::string info[4] = {"OK", "OK", "OK", "OK"};
-	std::ostringstream oss;
 	if (double_floating < 0 || double_floating > 127 || nan)
 		info[CHAR] = "KO";
 	char	character = static_cast<char>(double_floating);
@@ -104,8 +103,8 @@ void	display_convert(double double_floating, int decimal, bool nan){
 		info[CHAR] = "N/A";
 	if (double_floating < std::numeric_limits<int>::min() || double_floating > std::numeric_limits<int>::max() || nan)
 		info[INT] = "KO";
-	int		integer = double_floating;
-	float	floating = double_floating;
+	int		integer = static_cast<int>(double_floating);
+	float	floating = static_cast<float>(double_floating);
 
 	display(character, integer, floating, double_floating, decimal, info);
 }
@@ -125,8 +124,8 @@ int	count_decimal(std::string &input)
 	}
 	if (decimal == 0)
 		decimal = 1;
-	if (decimal > 10)
-		decimal = 10;
+	if (decimal > 5)
+		decimal = 5;
 	return (decimal);
 }
 
@@ -145,7 +144,7 @@ void	convertToAllType(std::string &input, void *ptr, int type){
 		}
 		case 1:
 		{
-			integer = static_cast<long*>(ptr)[0];
+			integer = static_cast<int*>(ptr)[0];
 			display_convert(integer, 1);
 			break ;
 		}
@@ -154,7 +153,7 @@ void	convertToAllType(std::string &input, void *ptr, int type){
 			bool nanf = false;
 			if (input == "nanf")
 				nanf = true;
-			floating = static_cast<double*>(ptr)[0];
+			floating = static_cast<float*>(ptr)[0];
 			display_convert(floating, count_decimal(input), nanf);
 			break ;
 		}
@@ -163,7 +162,7 @@ void	convertToAllType(std::string &input, void *ptr, int type){
 			bool nan = false;
 			if (input == "nan")
 				nan = true;
-			double_floating = static_cast<long double*>(ptr)[0];
+			double_floating = static_cast<double*>(ptr)[0];
 			display_convert(double_floating, count_decimal(input), nan);
 			break ;
 		}

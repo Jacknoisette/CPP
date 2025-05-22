@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 10:27:42 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/11 08:48:01 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/22 10:48:12 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void		convertToAllType(std::string &input, void *ptr, int type);
 std::string	removeWhitespace(const std::string &input);
 int			checkOGType(const std::string &input);
 void		*checkLimitType(const std::string &input, int type);
-void		*checkLimitTypeSpe(const std::string &input, int type);
 void		display_type(int type);
 void		delete_type(void *ptr, int type);
 

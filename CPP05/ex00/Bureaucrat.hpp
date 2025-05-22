@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 12:12:36 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/15 10:28:02 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/05/21 10:09:52 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ class Bureaucrat {
 
 	public :
 		Bureaucrat(void);
-		Bureaucrat(int _grade);
-		Bureaucrat(std::string _name);
 		Bureaucrat(std::string _name, int _grade);
 		~Bureaucrat(void);
 		Bureaucrat(const Bureaucrat &copy);

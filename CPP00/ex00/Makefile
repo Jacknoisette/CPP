@@ -6,7 +6,7 @@
 #    By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 11:44:16 by jdhallen          #+#    #+#              #
-#    Updated: 2025/01/30 12:03:03 by jdhallen         ###   ########.fr        #
+#    Updated: 2025/05/22 10:19:13 by jdhallen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = megaphone
 
-SRCS = megaphone.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
