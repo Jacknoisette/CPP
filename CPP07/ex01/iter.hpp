@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:48:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/05 16:44:34 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:26:49 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,15 @@
 # define BIG "\033[1m"
 
 template <typename T>
-void	iter(T *array_adr, int length, void (*function)(T &arg)){
-	for (int i = 0; i < length; i++)
+void	iter(T *array_adr, size_t length, void (*function)(T &arg)){
+	for (size_t i = 0; i < length; i++)
 		function(array_adr[i]);
 }
 
 template <typename T>
-void	iter(const T *array_adr, int length, void (*function)(const T &arg)){
-	for (int i = 0; i < length; i++)
+void	iter(const T *array_adr, size_t length, void (*function)(const T &arg)){
+	for (size_t i = 0; i < length; i++)
 		function(array_adr[i]);
-}
-
-template <typename T>
-void	printTemplate(T &arg){
-	std::cout << WHITE << "Template value is : " << ORANGE << BIG << arg << RESET << std::endl;
 }
 
 template <typename T>

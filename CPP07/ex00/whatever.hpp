@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:48:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/14 13:15:30 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:21:56 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	swap(T &arg1, T &arg2){
 }
 
 template <typename T>
-T	min(T arg1, T arg2){
+const T	min(const T &arg1, const T &arg2){
 	if (arg1 < arg2)
 		return (arg1);
 	return (arg2);
 }
 
 template <typename T>
-T	max(T arg1, T arg2){
+const T	max(const T &arg1, const T &arg2){
 	if (arg1 > arg2)
 		return (arg1);
 	return (arg2);

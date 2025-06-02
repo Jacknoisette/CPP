@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/05/05 16:48:17 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:25:52 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	test1(void)
 {
-	int array[20] = {0, 1, 3, 6, 2, -1, 14, 15, 80, 1000, 4, 54, 23, 83, 1, -1, 93, 90, 138, 100};
+	int array[20] = {0, 1, 3, 6, 0, -1, 14, 15, 80, 1000, 4, 54, 23, 83, 1, -1, 93, 90, 138, 100};
 	::iter(array, 20, ::printTemplate);
 	return (0);
 }
@@ -34,7 +34,7 @@ int	test3(void)
 					"I am already bored at the 3rd line", 
 					"A wise man said once :",
 					"\"A wall that is darker than a white wall",
-					"Is not a white wall or you have to clean\"",
+					"Is not a white wall or you have to clean it\"",
 					"This man was wise, and for the record",
 					"I don't know if a man once said that",
 					"And in fact I don't care",

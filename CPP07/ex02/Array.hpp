@@ -6,12 +6,12 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 11:48:22 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/14 17:09:01 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:41:37 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 #include <iostream>
 #include <exception>
@@ -31,15 +31,17 @@ template <typename T>
 class Array {
 	private :
 		unsigned int	array_size;
-	public :
 		T	*array;
+	public :
 		Array(void);
 		Array(unsigned int	i);
 		~Array(void);
 		Array(const Array &cpy);
-		T				&operator[](unsigned int index);
+		T				&operator[](const unsigned int &index);
 		Array			&operator=(const Array &src);
-		unsigned int	size(void);
+		unsigned int	size(void) const;
 };
+
+#include "Array.tpp"
 
 #endif

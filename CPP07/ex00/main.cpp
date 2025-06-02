@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/14 13:15:26 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:20:26 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ int	test2(void)
 	{
 		int	x = 0;
 		int	y = 42;
+		std::cout << "Int : x = " << x << ", y = " << y << std::endl;
+		std::cout << "Min : " << ::min(x, y) << std::endl;
+	}
+	{
+		const int	x = 0;
+		const int	y = 42;
 		std::cout << "Int : x = " << x << ", y = " << y << std::endl;
 		std::cout << "Min : " << ::min(x, y) << std::endl;
 	}
