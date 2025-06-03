@@ -6,12 +6,11 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/15 11:42:10 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:50:27 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include "easyfind.tpp"
 
 int	test1(void)
 {

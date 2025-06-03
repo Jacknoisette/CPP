@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:03:27 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/16 13:29:31 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:02:59 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 class Span{
 	private :
 		unsigned int max_size;
-	public :
 		std::vector<int> span;
+	public :
 		Span(void);
 		Span(unsigned int N);
 		~Span(void);
@@ -45,6 +45,7 @@ class Span{
 		void	addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 		unsigned int		shortestSpan(void);
 		unsigned int		longestSpan(void);
+		std::vector<int>	getSpan(void) const;
 };
 
 #endif

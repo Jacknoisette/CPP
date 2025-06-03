@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 13:03:52 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/16 13:31:53 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:03:34 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,8 @@ unsigned int		Span::longestSpan(void){
 		throw std::runtime_error("Span size is not big enough");
 	std::sort(temp.begin(), temp.end());
 	return (abs(temp[temp.size() - 1] - *temp.begin()));	
+}
+
+std::vector<int>	Span::getSpan(void) const{
+	return (span);
 }

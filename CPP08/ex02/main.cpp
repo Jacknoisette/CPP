@@ -6,12 +6,11 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/16 11:35:19 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:05:51 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
-#include "MutantStack.tpp"
 
 int	test1(void)
 {

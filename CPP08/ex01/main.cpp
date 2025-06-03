@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/05/15 15:46:31 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:04:42 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	test1(void)
 		return (std::cout << "Error : " << e.what() << std::endl, -1);
 	}
 	std::cout << "Span : ";
-	for (unsigned int i = 0; i < sp.span.size(); i++)
-		std::cout << sp.span[i] << " ";
+	for (unsigned int i = 0; i < sp.getSpan().size(); i++)
+		std::cout << sp.getSpan()[i] << " ";
 	std::cout << std::endl;
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
@@ -109,8 +109,8 @@ int	test3(void)
 		return (std::cout << "Error : " << e.what() << std::endl, -1);
 	}
 	// std::cout << WHITE << BIG << "Span : " << RESET << YELLOW;
-	// for (unsigned int i = 0; i < sp.span.size(); i++)
-	// 	std::cout << sp.span[i] << " ";
+	// for (unsigned int i = 0; i < sp.getSpan().size(); i++)
+	// 	std::cout << sp.getSpan()[i] << " ";
 	// std::cout << std::endl;
 	std::cout << WHITE << BIG << "Shortest Span" << RESET << std::endl;
 	std::cout << sp.shortestSpan() << std::endl;

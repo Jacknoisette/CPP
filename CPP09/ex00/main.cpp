@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/17 11:53:50 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:20:00 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ int	getDataBaseInfo(std::map<Date, float> *btcDataBase, std::string filename){
 	}
 	std::string line;
 	std::getline(fd1, line);
+	if (line != "date,exchange_rate")
+		return (std::cout << filename << " have wrong header" << std::endl, -1);
 	while (std::getline(fd1, line)){
 		if (line.size() < 11){
 			std::cout << "Error: bad input => " << line << std::endl;

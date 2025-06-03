@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 15:08:21 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/16 11:04:09 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:05:45 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@
 # define RESET "\033[0m"
 # define BIG "\033[1m"
 
-#define INT32_MAX (2147483647)
-
 template <typename T>
 class MutantStack : public std::stack<T>{
 	public :
@@ -46,5 +44,7 @@ class MutantStack : public std::stack<T>{
 		MutantStack(const MutantStack &cpy);
 		MutantStack &operator=(const MutantStack &src);
 };
+
+#include "MutantStack.tpp"
 
 #endif

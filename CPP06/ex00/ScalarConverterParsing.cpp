@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:51:31 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/05/22 11:57:46 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/03 11:28:01 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	 checkOGType(const std::string &input){
 		return (DEFAULT);
 	if (size == 1 && std::isprint(input[0]))
 		return (CHAR);
-	if (size > 1 && !std::isdigit(input[0]))
-		return (DEFAULT);
 	std::string	special_case[] = {"nanf", "-inff", "+inff", "nan", "-inf", "+inf"};
 	for (int i = 0; i < 6; i++)
 	{
@@ -56,6 +54,8 @@ int	 checkOGType(const std::string &input){
 				return (DOUBLE);
 		}
 	}
+	if (size > 1 && !std::isdigit(input[0]))
+		return (DEFAULT);
 	for (int i = 0; i < size; i++)
 	{
 		if (i == 0 && (input[i] == '-' || input[i] == '+'))

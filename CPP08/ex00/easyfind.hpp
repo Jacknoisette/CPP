@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:09:11 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/15 12:57:00 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/02 14:50:32 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@
 
 template <typename T>
 void	easyfind(T container, int integer);
+
+#include "easyfind.tpp"
 
 #endif
