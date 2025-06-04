@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/06/03 14:20:00 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/04 14:34:28 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ Date createDate(const std::string &year, const std::string &month, const std::st
 	if (NewEntry.getMonth() < 0 || NewEntry.getMonth() > 12)
 		throw std::runtime_error("Error: bad input => " + year + "-" + month + "-" + day + " in " + filename);
 	NewEntry.setDay(std::atoi(day.c_str()));
-	if (NewEntry.getYear() % 4 == 0){
+	if (NewEntry.getYear() % 4 == 0 && (NewEntry.getYear() % 100 != 0 || NewEntry.getYear() % 400 == 0)){
 		if (NewEntry.getDay() < 1 || NewEntry.getDay() > dayAMonth_leapYear[NewEntry.getMonth() - 1])
 			throw std::runtime_error("Error: bad input => " + year + "-" + month + "-" + day + " in " + filename);
 	}
