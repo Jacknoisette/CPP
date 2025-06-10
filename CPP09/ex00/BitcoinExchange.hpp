@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 12:16:14 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/16 14:41:49 by jdhallen         ###   ########.fr       */
+/*   Created: 2025/06/10 10:41:51 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/06/10 10:41:52 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,20 @@
 # define RESET "\033[0m"
 # define BIG "\033[1m"
 
-class  Date {
+class  BitcoinExchange {
 	private :
 		int year;
 		int month;
 		int day;
 	public :
-		Date(void);
-		Date(int _year, int _month, int _day);
-		~Date(void);
-		Date(const Date &cpy);
-		Date &operator=(const Date &src);
-		bool operator<(const Date& other) const;
-		bool operator==(const Date& other) const;
-		void	findNearestValueInMap(const std::map<Date, float> &btcDataBase, float bitcoinNbr);
+		BitcoinExchange(void);
+		BitcoinExchange(int _year, int _month, int _day);
+		~BitcoinExchange(void);
+		BitcoinExchange(const BitcoinExchange &cpy);
+		BitcoinExchange &operator=(const BitcoinExchange &src);
+		bool operator<(const BitcoinExchange& other) const;
+		bool operator==(const BitcoinExchange& other) const;
+		void	findNearestValueInMap(const std::map<BitcoinExchange, float> &btcDataBase, float bitcoinNbr);
 		void	setYear(int _new_year);
 		void	setMonth(int _new_month);
 		void	setDay(int _new_day);
@@ -55,6 +55,6 @@ class  Date {
 		int		getDay(void) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const Date& obj);
+std::ostream& operator<<(std::ostream& os, const BitcoinExchange& obj);
 
 #endif

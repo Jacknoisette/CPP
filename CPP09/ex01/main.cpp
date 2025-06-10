@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 14:58:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/22 11:25:24 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:44:24 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,6 @@ int main(int argc, char **argv)
 		return (-1);
 	if (!build_rpn(rpn, &trunc))
 		return (-1);
-	display(&trunc);
 	std::cout << std::endl;
 	if (exec_branch(&trunc) == -1)
 		return (-1);
@@ -205,37 +204,3 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-// #include <fstream>
-// #include <fcntl.h>
-// int main(int argc, char **argv)
-// {
-// 	if (argc != 2)
-// 	return (std::cout << "Error: Wrong Arg" << std::endl, -1);
-// 	std::string	filename = argv[1];
-// 	std::ifstream fd1(filename.c_str());
-	
-// 	std::string line;
-// 	std::string line2;
-// 	while (std::getline(fd1, line)){
-// 		std::list<char> rpn;
-// 		Branch			trunc;
-// 		std::cout << "\n" << line << std::endl;
-// 		if (!std::getline(fd1, line2))
-// 			return (-1);
-// 		std::cout << line2 << std::endl;
-// 		std::cout << "My result : ";
-// 		if (!init_rpn(line, &rpn))
-// 			continue;
-// 		if (!check_rpn(rpn))
-// 			continue;
-// 		if (!check_correct_tree(rpn))
-// 			continue;
-// 		if (!build_rpn(rpn, &trunc))
-// 			continue;
-// 		if (exec_branch(&trunc) == -1)
-// 			continue;
-// 		// display(&trunc);
-// 		std::cout << trunc.getValue() << std::endl;
-// 	}
-// 	return (0);
-// }

@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 11:45:36 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/04/23 14:28:35 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:46:42 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #include <limits>
 #include <sstream>
 #include <sys/time.h>
+#include <iostream>
+#include <iomanip>
 
 # define RED "\033[1;30m"
 # define PURPLE "\033[1;31m"

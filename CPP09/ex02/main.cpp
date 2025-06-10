@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/23 15:21:08 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/06/10 11:58:16 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,6 @@ bool	execStack(std::vector<int> *Vstack, std::deque<int> *Dstack, long *Vtime, l
 	return (true);
 }
 
-#include <iostream>
-#include <iomanip> // pour std::fixed et std::setprecision
-
 void display_time(long time_us) {
 	if (time_us >= 1000000)
 		std::cout << std::fixed << std::setprecision(3) << (double)time_us / 1000000 << " s" << std::endl;
@@ -97,10 +94,10 @@ int main(int argc, char **argv)
 		return (std::cout << "Error: No Arg is provided" << std::endl, -1);
 	std::vector<int> Vstack;
 	std::deque<int> Dstack; 
-	long TEST = getTimeMicro(); 
+	long parsingtimestart = getTimeMicro(); 
 	if (!parsing(&Vstack, &Dstack, argc, argv))
 		return (0);
-	long TEST2 = getTimeMicro(); 
+	long parsingtimeend = getTimeMicro(); 
 	std::cout << "Before : ";
 	display_container(&Vstack);
 
@@ -119,6 +116,6 @@ int main(int argc, char **argv)
 	std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque  : "; // << Dtime << " us" << std::endl; 
 	display_time(Dtime);
 	std::cout << "Time for parsing" << std::endl;
-	display_time(TEST2 - TEST);
+	display_time(parsingtimeend - parsingtimestart);
 	return (0);
 }

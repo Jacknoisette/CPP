@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:44:30 by codespace         #+#    #+#             */
-/*   Updated: 2025/06/04 14:34:28 by jdhallen         ###   ########.fr       */
+/*   UpBitcoinExchanged: 2025/06/04 14:34:28 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,17 @@ float getFloatValue(const std::string &line, const  std::string &filename, bool 
 	return (float_value);
 }
 
-Date createDate(const std::string &year, const std::string &month, const std::string &day, const std::string &filename)
+BitcoinExchange createDate(const std::string &year, const std::string &month, const std::string &day, const std::string &filename)
 {
 	int	dayAMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	int	dayAMonth_leapYear[12] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	Date		NewEntry;
+	BitcoinExchange		NewEntry;
 	
 	NewEntry.setYear(std::atoi(year.c_str()));
+	if (NewEntry.getYear() < 0 || NewEntry.getYear() > 9999)
+		throw std::runtime_error("Error: bad input => " + year + "-" + month + "-" + day + " in " + filename);
 	NewEntry.setMonth(std::atoi(month.c_str()));
-	if (NewEntry.getMonth() < 0 || NewEntry.getMonth() > 12)
+	if (NewEntry.getMonth() < 1 || NewEntry.getMonth() > 12)
 		throw std::runtime_error("Error: bad input => " + year + "-" + month + "-" + day + " in " + filename);
 	NewEntry.setDay(std::atoi(day.c_str()));
 	if (NewEntry.getYear() % 4 == 0 && (NewEntry.getYear() % 100 != 0 || NewEntry.getYear() % 400 == 0)){
@@ -101,7 +103,7 @@ Date createDate(const std::string &year, const std::string &month, const std::st
 	return (NewEntry);
 }
 
-int	getDataBaseInfo(std::map<Date, float> *btcDataBase, std::string filename){
+int	getDataBaseInfo(std::map<BitcoinExchange, float> *btcDataBase, std::string filename){
 	std::ifstream fd1(filename.c_str());
 	if (!fd1){
 		std::cout << "Error: with csv file" << std::endl;
@@ -121,7 +123,7 @@ int	getDataBaseInfo(std::map<Date, float> *btcDataBase, std::string filename){
 			std::string month(getMonth(line, filename));
 			std::string day(getDay(line, filename, false));
 			float		float_value(getFloatValue(line, filename, false));
-			Date		NewEntry (createDate(year, month, day, filename));
+			BitcoinExchange		NewEntry (createDate(year, month, day, filename));
 			(*btcDataBase)[NewEntry] = float_value;
 		} catch (std::runtime_error & e) {
 			std::cout << e.what() << std::endl;
@@ -131,7 +133,7 @@ int	getDataBaseInfo(std::map<Date, float> *btcDataBase, std::string filename){
 	return (0);
 }
 
-int	getUserBtcInput(std::map<Date, float> *btcDataBase, std::string filename){
+int	getUserBtcInput(std::map<BitcoinExchange, float> *btcDataBase, std::string filename){
 	std::ifstream fd1(filename.c_str());
 	if (!fd1){
 		std::cout << "Error: with input file" << std::endl;
@@ -151,7 +153,7 @@ int	getUserBtcInput(std::map<Date, float> *btcDataBase, std::string filename){
 			std::string month(getMonth(line, filename));
 			std::string day(getDay(line, filename, true));
 			float		float_value(getFloatValue(line, filename, true));
-			Date		NewEntry (createDate(year, month, day, filename));
+			BitcoinExchange		NewEntry (createDate(year, month, day, filename));
 			NewEntry.findNearestValueInMap(*btcDataBase, float_value);
 		} catch (std::runtime_error & e) {
 			std::cout << e.what() << std::endl;
@@ -167,10 +169,10 @@ int main(int argc, char **argv)
 	std::string filename = "data.csv";
 	std::string	input = argv[1];
 	
-	std::map<Date, float> btcDataBase;
+	std::map<BitcoinExchange, float> btcDataBase;
 	if (getDataBaseInfo(&btcDataBase, filename) == -1)
 		return (-1);
-	// std::map<Date, float>::iterator it;
+	// std::map<BitcoinExchange, float>::iterator it;
 	// for (it = btcDataBase.begin(); it != btcDataBase.end(); ++it) {
 	// 	std::cout << it->first.getYear() << "-" << it->first.getMonth() << "-" << it->first.getDay();
 	// 	std::cout << " -> " << it->second << std::endl;
